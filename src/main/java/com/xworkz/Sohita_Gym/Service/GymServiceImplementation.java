@@ -357,7 +357,6 @@ public class GymServiceImplementation implements GymService {
         entity.setPhoneNumber(phoneNumber);
         entity.setSlotTimings(slotTimings);
         return gymRepository.savetrainerdetails(entity);
-
     }
 
     @Override
@@ -366,33 +365,16 @@ public class GymServiceImplementation implements GymService {
 
     }
 
+    @Override
+    public List<RegistrationEntity> getAllRegisteredUserDetailsById(int id) {
+        return gymRepository.getAllRegisteredUserDetailsById(id);
+    }
 
-//    @Override
-//    public RegistrationEntity getAllRegistredUsersDetailsById(int id) {
-//        return gymRepository.getAllRegistredUserDetailsById(id);
-//    }
-//
-//
-//
-//    @Override
-//    public int updateUserProfile(RegistrationDTO registrationDTO, String filePath, int id) {
-//        return gymRepository.updateUserProfile(registrationDTO,filePath,id);
-//    }
-//
-//    @Override
-//    public int upadteRegistredUsersDetails(int id, String packageType, String trainerName, double amount, double balance, double totalAmount, String adminName) {
-//        int value=gymRepository.upadteRegistredUsersDetails(id,packageType,trainerName,amount,balance,totalAmount);
-//        UpdateRegistrationDetailsEntity details=new UpdateRegistrationDetailsEntity();
-//        details.setId(id);
-//        details.setAmount(amount);
-//        details.setBalance(balance);
-//        details.setPackageType(packageType);
-//        details.setTrainerName(trainerName);
-//        details.setUpdated_by(adminName);
-//        gymRepository.saveUpadteRegistredUsersDetails(details);
-//        return value;
-//
-//    }
+
+    @Override
+    public RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath) {
+        return gymRepository.updateUserProfile(name,registrationDTO,filePath);
+    }
 }
 
 

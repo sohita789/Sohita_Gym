@@ -58,7 +58,7 @@
     <div class="container">
         <h2 class="text-center mb-4">Reset Password</h2>
         <form action="resetPassword" method="post">
-            <input type="hidden" name="name" value="${userName}">
+            <input type="text" name="name" value="${userName}">
 
             <div class="mb-3">
                 <label for="oldPassword" class="form-label">Old Password</label>

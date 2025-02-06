@@ -1,3 +1,4 @@
+
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -331,6 +332,16 @@
             }
         }
     </script>
+
+    <!-- Main Content -->
+    <div class="container content-container">
+        <h1>Welcome to GymWorld</h1>
+        <div class="links">
+
+             <a href="UserProfile.jsp">User Profile</a>
+              <a href="UpdateUserProfile.jsp">Update User Profile</a>
+        </div>
+    </div>
 </body>
 
 </html>

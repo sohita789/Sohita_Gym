@@ -72,20 +72,17 @@ public interface GymService {
     //forget password
     String resetPasswordByEmail(String email, String newPassword, String confirmPassword);
 
-//    RegistrationEntity getAllRegistredUsersDetailsById(int id);
-//
-//    // update the user profile
-//    int updateUserProfile(RegistrationDTO registrationDTO, String filePath,int id);
-//
-//
-// int upadteRegistredUsersDetails(int id, String packageType, String trainerName, double amount, double balance, double totalAmount, String adminName);
-
+    //slots
     public boolean saveSlots(String startTimings, String endTimings, String duration);
     public List<SlotTimingsEntity> getAllslots();
 
-
-
-      public boolean savetrainerdetails(String name, String phoneNumber, String slotTimings);
-
+    // trainerdetails
+    public boolean savetrainerdetails(String name, String phoneNumber, String slotTimings);
     public List<TrainerinfoEntity> getAlltrainerdetails();
+
+    //Update Profile
+    List<RegistrationEntity> getAllRegisteredUserDetailsById(int id);
+
+    RegistrationDTO updateUserProfile(String name,RegistrationDTO registrationDTO, String filePath);
+
 }

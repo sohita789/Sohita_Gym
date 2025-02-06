@@ -7,8 +7,6 @@ import com.xworkz.Sohita_Gym.Entity.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -322,7 +320,6 @@ public class GymRepoImplementation implements GymRepository {
             entityManager.close();
         }
         return 0;
-
     }
 
     @Override
@@ -799,9 +796,7 @@ public class GymRepoImplementation implements GymRepository {
             }
         }
 
-
-
-    @Override
+        @Override
     public List<TrainerinfoEntity> findAlltrainerlist() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
@@ -823,84 +818,52 @@ public class GymRepoImplementation implements GymRepository {
         return null;
     }
 
-//    @Override
-//    public int updateUserProfile(RegistrationDTO registrationDTO, String filePath, int id) {
-//        EntityManager em = entityManagerFactory.createEntityManager();
-//        EntityTransaction et = em.getTransaction();
-//        int value = 0;
-//        try {
-//            et.begin();
-//            value = em.createNamedQuery("updateUserProfile").setParameter("getprofileImage", filePath).setParameter("getId", id).executeUpdate();
-//
-//            et.commit();
-//        } catch (Exception e) {
-//            if (et.isActive()) {
-//                et.rollback();
-//            }
-//        } finally {
-//            em.close();
-//        }
-//        return value;
-//    }
-//
-//    @Override
-//    public RegistrationEntity getAllRegistredUserDetailsById(int id) {
-//        EntityManager em = entityManagerFactory.createEntityManager();
-//        EntityTransaction et = em.getTransaction();
-//        RegistrationEntity registrationEntity = null;
-//        try {
-//            et.begin();
-//            List<RegistrationEntity> list = em.createNamedQuery("getAllRegistredUsersDetailsById").setParameter("getId", id).getResultList();
-//            if (!list.isEmpty()) {
-//                registrationEntity = list.get(0);
-//            }
-//            et.commit();
-//        } catch (Exception e) {
-//            if (et.isActive()) {
-//                et.rollback();
-//            }
-//        } finally {
-//            em.close();
-//        }
-//        return registrationEntity;
-//    }
-//
-//    @Override
-//    public int upadteRegistredUsersDetails(int id, String packageType, String trainerName, double amount, double balance, double totalAmount) {
-//        EntityManager em = entityManagerFactory.createEntityManager();
-//        EntityTransaction et = em.getTransaction();
-//        int updatedValue=0;
-//        try {
-//            et.begin();
-//            updatedValue=em.createNamedQuery("updateRegistredUserDetails").setParameter("getPackageType",packageType).setParameter("getTrainerName",trainerName).setParameter("getAmount",amount).setParameter("getBalance",balance).setParameter("getAmount",totalAmount).setParameter("getId",id).executeUpdate();
-//            et.commit();
-//        } catch (Exception e) {
-//            if (et.isActive()) {
-//                et.rollback();
-//            }
-//        } finally {
-//            em.close();
-//        }
-//        return updatedValue;
-//
-//    }
-//
-//    @Override
-//    public void saveUpadteRegistredUsersDetails(UpdateRegistrationDetailsEntity details) {
-//        EntityManager em = entityManagerFactory.createEntityManager();
-//        EntityTransaction et = em.getTransaction();
-//        try {
-//            et.begin();
-//            em.persist(details);
-//            et.commit();
-//        } catch (Exception e) {
-//            if (et.isActive()) {
-//                et.rollback();
-//            }
-//        } finally {
-//            em.close();
-//        }
+    @Override
+    public List<RegistrationEntity> getAllRegisteredUserDetailsById(int id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+
+        List<RegistrationEntity> list=em.createNamedQuery("getAllRegDetailsById",RegistrationEntity.class).
+                setParameter("getId",id).getResultList();
+        try {
+            et.begin();
+            em.merge(list);
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+        } finally {
+            em.close();
+        }
+        System.out.println(list);
+        return list;
     }
+
+    @Override
+    public RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        int value=0;
+        try {
+            et.begin();
+            value=em.createNamedQuery("updateUserProfileByName")
+                    .setParameter("getAge",registrationDTO.getAge())
+                    .setParameter("getHeight",registrationDTO.getHeight())
+                    .setParameter("getWeight",registrationDTO.getWeight())
+                    .setParameter("getFilePath",filePath)
+                    .setParameter("getName",name).executeUpdate();
+
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+        } finally {
+            em.close();
+        }
+        return null;
+    }}
 
 
 

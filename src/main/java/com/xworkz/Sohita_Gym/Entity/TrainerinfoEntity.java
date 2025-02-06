@@ -17,12 +17,12 @@ public class TrainerinfoEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
 
-       // @Column(name = "Name")
+        @Column(name = "Name")
         private String name;
 
-       // @Column(name = "PhoneNumber")
+        @Column(name = "PhoneNumber")
         private String phoneNumber;
 
-      //  @Column(name = "SlotTimings")
+        @Column(name = "SlotTimings")
         private String slotTimings;
 }

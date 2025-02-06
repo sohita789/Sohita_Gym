@@ -36,6 +36,8 @@ public class RegistrationDTO {
     private int installment;
     private double balance;
   //  private String filePath;
+  private int height;
+    private int weight;
 
 
 

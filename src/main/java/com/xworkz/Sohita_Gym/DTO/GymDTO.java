@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class GymDTO {
 
     private int id;
-    //private  String name;
     private String email;
     private String password;
 

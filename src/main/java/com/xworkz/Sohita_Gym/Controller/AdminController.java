@@ -23,8 +23,7 @@ public class AdminController {
     }
 
     @GetMapping("/SignIn")
-
-    public String onSignIn(@RequestParam("email")String email, @RequestParam("password")String password, Model model) {
+    public String onSignIn(String email, String password, Model model) {
         System.out.println("running onSignIn method in AdminController");
         boolean read = gymService.getNameByEmail(email, password);
 

@@ -134,7 +134,8 @@
         <div class="links">
             <a href="Admin.jsp">Login</a>
             <a href="UserLogin.jsp">User Login</a>
-        </div>
+
+      </div>
     </div>
 
     <!-- Scripts -->

@@ -16,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@RequestMapping
+@RequestMapping("/")
 
 public class TrainerAllotmentController {
 
@@ -46,7 +46,7 @@ public class TrainerAllotmentController {
             model.addAttribute("slots", slots);
             List<TrainerinfoEntity> trainerinfolist = gymService.getAlltrainerdetails();
             model.addAttribute("trainerInfoList", trainerinfolist);
-            model.addAttribute("successMessage", "DetailsUpdatedSuccessfully");
+            model.addAttribute("successMessage", "TrainersDetailsUpdatedSuccessfully");
             return "trainerslots";
         }
         model.addAttribute("errorMessage", "Failed ");

@@ -1,3 +1,6 @@
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,9 +105,9 @@
     <!-- Form Container -->
     <div class="form-container">
         <h1>Admin Form</h1>
-        <form action="SignIn" method="POST" onsubmit="return validateForm()">
+        <form action="SignIn" method="get" >
 
-            <!-- Name Field with Icon -->
+
 
             <!-- Email Field with Icon -->
             <div class="mb-3 position-relative">
@@ -131,13 +134,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Example JS Functions for Validation (These should be customized as per your needs)
-        function onName() {
-            const name = document.getElementById("name").value;
-            document.getElementById("displayName").innerText = name.length < 3 ? "Name must be at least 3 characters" : "";
-        }
 
-        function onEmail() {
+         function onEmail() {
             const email = document.getElementById("email").value;
             document.getElementById("displayEmail").innerText = !email.includes("@") ? "Please enter a valid email" : "";
         }

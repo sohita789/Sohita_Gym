@@ -1,64 +1,94 @@
-//package com.xworkz.Sohita_Gym.Controller;
-//
-//import com.xworkz.Sohita_Gym.Entity.AdminEntity;
-//import com.xworkz.Sohita_Gym.Service.GymService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.RequestParam;
-//
-//import javax.servlet.http.HttpSession;
-//
-//@Controller
-//
-//public class UpdateProfileController {
-//
-//    @Autowired
-//    private GymService gymService;
-//
-//
-//    @RequestMapping(value = "/updatebutton", method = RequestMethod.POST)
-//    public String onupdatebutton(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("phoneNo") long phoneNo, @RequestParam("packageType") String packageType, @RequestParam("trainerName") String trainerName, @RequestParam("balance") String balance, @RequestParam("amount") String amount , HttpSession httpSession, Model model) {
-//
-//        System.out.println(trainerName+packageType);
-//        model.addAttribute("id",id);
-//        model.addAttribute("name",name);
-//        model.addAttribute("phoneNo",phoneNo);
-//        model.addAttribute("packageType",packageType);
-//        model.addAttribute("trainerName",trainerName);
-//        model.addAttribute("amount",amount);
-//        model.addAttribute("balance",balance);
-////        model.addAttribute("packagesEnumList", packagesEnumList);
-////        model.addAttribute("gymTrainersEnums", gymTrainersEnums);
-//        AdminEntity entity=(AdminEntity) httpSession.getAttribute("adminEntity");
-//
-//        model.addAttribute("listing",entity);
-//
-//        return "UpdateRegistredDetails";
-//    }
-//
-//    @PostMapping("/updateRegister")
-//    public String onRegistredDetailsUpdate(int id, String packageType, String trainerName, double amount, double balance, double totalAmount, String name, String phoneNo, Model model, HttpSession session){
-//        System.out.println(totalAmount);
-//        AdminEntity adminEntity= (AdminEntity)session.getAttribute("adminEntity");
-//        String adminName=adminEntity.getName();
-//        int updatedVlaue=gymService.upadteRegistredUsersDetails(id,packageType,trainerName,amount,balance,totalAmount,adminName);
-//        if(updatedVlaue>0){
-//            model.addAttribute("name",name);
-//            model.addAttribute("no",phoneNo);
-//            model.addAttribute("packageType",packageType);
-//            model.addAttribute("trainerName",trainerName);
-//            model.addAttribute("balance",balance);
-//            model.addAttribute("Amountpaid",amount);
-//            model.addAttribute("totalAmount",totalAmount);
-//
-//
-//            model.addAttribute("listing",adminEntity);
-//            return "DisplayUpdatedRegistredDetails";
-//        }
-//        return "UpdateRegistredDetails";
-//    }
-//}
+package com.xworkz.Sohita_Gym.Controller;
+
+import com.xworkz.Sohita_Gym.DTO.RegistrationDTO;
+import com.xworkz.Sohita_Gym.Entity.AdminEntity;
+import com.xworkz.Sohita_Gym.Entity.RegistrationEntity;
+import com.xworkz.Sohita_Gym.Service.GymService;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+@Controller
+@RequestMapping("/")
+@Slf4j
+
+public class UpdateProfileController {
+
+    @Autowired
+    private GymService gymService;
+
+    @GetMapping("/update")
+    public String onUpdateProfile(@RequestParam int id, Model model) {
+        System.out.println("=============================update action+++========");
+        RegistrationEntity entity1 = new RegistrationEntity();
+        System.out.println("id is coming" + id);
+        if (id <= 0) {
+            model.addAttribute("error", "Invalid user Id");
+            return "ErrorPage";
+        }
+
+        List<RegistrationEntity> entities = gymService.getAllRegisteredUserDetailsById(id);
+        if(entities != null && !entities.isEmpty()) {
+            RegistrationEntity entity = entities.get(0);
+            model.addAttribute("register", entity);
+            model.addAttribute("filePath", entity.getFilePath());
+        }else {
+            model.addAttribute("error", "No user found for this id");
+            return "ErrorPage";
+        }
+        return "UpdateUserProfile";
+
+        }
+
+
+    @GetMapping("/download")
+    public void display(HttpServletResponse response, @RequestParam String filePath) throws  Exception{
+        System.out.println("this is image"+filePath);
+        response.setContentType("Image/jpg");
+        File file = new File("C:\\ProfileImagePath\\" + filePath);
+        InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
+        ServletOutputStream outputStream = response.getOutputStream();
+        IOUtils.copy(inputStream, outputStream);
+        response.flushBuffer();
+    }
+
+    @PostMapping("/updateUserProfile")
+    public String onUpdating(@RequestParam String name, RegistrationDTO registrationDTO, @RequestParam("picture") MultipartFile multipartFile, Model model) throws IOException {
+        System.out.println(name);
+
+        if (multipartFile.isEmpty()) {
+            // Add the name to the model to pass it to the Success page
+            RegistrationDTO dto = gymService.updateUserProfile(name, registrationDTO,null);
+            model.addAttribute("register", name);
+            return "Success";
+
+        }else{
+            System.out.println("multipartFile="+multipartFile);
+            System.out.println("multipartFile OriginalFileName=="+multipartFile.getOriginalFilename());
+            System.out.println("multipartFile=="+multipartFile.getContentType());
+
+            byte[] bytes = multipartFile.getBytes();
+            Path path = Paths.get("C:\\ProfileImagePath\\" + name + System.currentTimeMillis() + ".jpg");
+            Files.write(path, bytes);
+            String filePath = path.getFileName().toString();
+            System.err.println("filePath=====" + filePath);
+
+            RegistrationDTO dto = gymService.updateUserProfile(name, registrationDTO,filePath);
+            return "UserProfile";
+        }
+    }
+}
+

@@ -43,8 +43,10 @@ public interface GymRepository {
     //userLogin
     RegistrationEntity userSave(String email);
     void updateCount(String email, int count);
-    String updateAccountLockTimeByEmail(String email);
+//    String updateAccountLockTimeByEmail(String email);
     boolean resetCount(String email, int count);
+
+    String updateAccountLockTimeByEmail(String email);
 
     RegistrationEntity updateRegistration(String name, long phoneNo);
     String updatePasswordByName(String newPassword, String name);
@@ -53,14 +55,6 @@ public interface GymRepository {
     Long getCountOfAdminUserNameByEmail(String email);
     Long getCountOfAdminUserNameByPassword(String password);
 
-   // int updateUserProfile(RegistrationDTO registrationDTO, String filePath, int id);
-
-   // RegistrationEntity getAllRegistredUserDetailsById(int id);
-
-   // int upadteRegistredUsersDetails(int id, String packageType, String trainerName, double amount, double balance, double totalAmount);
-
-   // void saveUpadteRegistredUsersDetails(UpdateRegistrationDetailsEntity details);
-
     public boolean saveSlots(SlotTimingsEntity slotTimings);
 
     List<SlotTimingsEntity> findallslots();
@@ -68,6 +62,10 @@ public interface GymRepository {
     boolean savetrainerdetails(TrainerinfoEntity entity);
 
     List<TrainerinfoEntity> findAlltrainerlist();
+
+    List<RegistrationEntity> getAllRegisteredUserDetailsById(int id);
+
+    RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath);
 }
 
 

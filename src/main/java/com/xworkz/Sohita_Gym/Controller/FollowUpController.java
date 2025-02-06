@@ -81,7 +81,6 @@ public class FollowUpController {
         System.out.println("viewDetails in controller==" + enquiryList);
         model.addAttribute("enquiryList", enquiryList);
         return "ViewEnquiryDetails";
-
     }
 }
 

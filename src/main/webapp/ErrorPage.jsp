@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logged In Successfully</title>
+    <title>Error Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
+            background-image: url(https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg);
             background-size: cover;
             background-position: center;
             display: flex;
@@ -35,11 +35,8 @@
 </head>
 <body>
     <div class="content-container">
-        <h1>Registered Successfully</h1>
-        <a href="Success.jsp" class="btn btn-primary">Home</a>
-         <a href="UpdateRegistration.jsp" class="btn btn-primary">UpdateRegistration</a>
-         <a href="trainerslots.jsp" class="btn btn-primary">TrainerSlotDetails</a>
-
+        <h1>ErrorPage</h1>
+        <a href="index.jsp" class="btn btn-primary">Home</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,20 +116,22 @@
         <h1>User Login</h1>
         <form action="user" method="post">
 
-            <!-- Email field with icon -->
-            <div class="mb-3">
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required>
-                </div>
-            </div>
+             <div class="mb-3">
+             <label for="email" class="form-label">Email Address</label>
+
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email address" required>
+                    </div>
 
             <!-- Password field with icon -->
             <div class="mb-3">
+                 <label for="password" class="form-label">Password</label>
+
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password"
-                        required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+
                 </div>
             </div>
 
@@ -141,7 +142,7 @@
 
             <!-- Forgot password link -->
             <div class="text-center">
-                <a href="#" class="forgot-password">Forgot password?</a>
+                <a href="ForgetPassword.jsp" class="forgot-password">Forgot password?</a>
             </div>
         </form>
     </div>

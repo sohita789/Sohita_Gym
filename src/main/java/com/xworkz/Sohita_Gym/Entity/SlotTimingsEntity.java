@@ -16,9 +16,9 @@ public class SlotTimingsEntity {
    // @Column(name = "StartTime")
     private String startTimings;
 
-   // @Column(name = "EndTime")
+  //  @Column(name = "EndTime")
     private String endTimings;
 
- //   @Column(name = "Duration")
+   // @Column(name = "Duration")
     private String duration;
 }

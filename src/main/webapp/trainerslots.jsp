@@ -8,20 +8,71 @@
     <title>Trainer & Slot Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; font-family: Arial, sans-serif; }
-        .navbar { background-color: #007bff; }
-        .navbar-brand, .nav-link { color: #fff !important; }
-        .container { margin-top: 20px; }
-        .card { border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
-        .card-header { background-color: #007bff; color: #fff; font-weight: bold; }
-        .btn-primary:hover { background-color: #0056b3; }
-        .btn-success:hover { background-color: #218838; }
-        .table th, .table td { vertical-align: middle; }
+        body {
+         background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
+         background-color: #f8f9fa; font-family: 'Arial', sans-serif; padding-top: 60px; }
+        .navbar {
+         background-color: #007bff; }
+        .navbar-brand,
+        .nav-link {
+        color: #fff !important; }
+        .container {
+        margin-top: 20px;
+        }
+        .card {
+         border: none;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px; }
+        .card-header {
+         background-color: #007bff;
+         color: #fff;
+         font-weight: bold;
+         }
+        .btn-primary:hover {
+        background-color: #0056b3;
+        }
+        .btn-success:hover {
+         background-color: #218838;
+         }
+        .table th, .table td {
+        vertical-align: middle;
+         text-align: center;
+          }
+        .modal-content {
+         border-radius: 10px;
+          }
+        .form-control {
+         border-radius: 5px;
+          }
+        .modal-footer {
+        display: flex;
+        justify-content: space-between;
+         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Trainer Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#addSlotsModal" data-bs-toggle="modal">Add Slots</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#addTrainerModal" data-bs-toggle="modal">Add Trainer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="trainerList">
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5>Trainer List</h5>
@@ -45,6 +96,7 @@
                         <th>Name</th>
                         <th>Phone Number</th>
                         <th>Slot Timings</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +115,7 @@
         </div>
     </div>
 
+    <!-- Add Trainer Modal -->
     <div class="modal fade" id="addTrainerModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -72,19 +125,19 @@
                 </div>
                 <div class="modal-body">
                     <form id="addTrainerForm" action="trainerAddact" method="post">
-                        <div class="mb-2">
+                        <div class="mb-3">
                             <label for="name" class="form-label">Trainer Name:</label>
                             <input type="text" id="name" class="form-control" name="Name" placeholder="Trainer Name" required>
                         </div>
 
-                        <div class="mb-2">
+                        <div class="mb-3">
                             <label for="phoneNumber" class="form-label">Phone Number:</label>
                             <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="Phone Number" required>
                         </div>
 
-                        <div class="mb-2">
+                        <div class="mb-3">
                             <label for="slotTimings" class="form-label">Select Slot Timing:</label>
-                            <select id="slotTimings" class="form-control" name="slotTimings" required>
+                            <select id="slotTimings" class="form-select" name="slotTimings" required>
                                 <option value="">-- Select Slot --</option>
                                 <c:forEach var="slot" items="${slots}">
                                     <option value="${slot.startTimings} - ${slot.endTimings}">${slot.startTimings} - ${slot.endTimings}</option>
@@ -101,6 +154,7 @@
         </div>
     </div>
 
+    <!-- Add Slots Modal -->
     <div class="modal fade" id="addSlotsModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -110,23 +164,24 @@
                 </div>
                 <div class="modal-body">
                     <form id="addSlotsForm" action="AddSlotact" method="get">
-                        <div class="mb-2">
+                        <div class="mb-3">
                             <label for="startTimings" class="form-label">Start Time:</label>
                             <input type="time" id="startTimings" class="form-control" name="startTimings" required oninput="calculateDuration()">
                         </div>
 
-                        <div class="mb-2">
+                        <div class="mb-3">
                             <label for="endTimings" class="form-label">End Time:</label>
                             <input type="time" id="endTimings" class="form-control" name="endTimings" required oninput="calculateDuration()">
                         </div>
 
-                        <div class="mb-2">
+                        <div class="mb-3">
                             <label for="duration" class="form-label">Duration:</label>
                             <input type="text" id="duration" class="form-control" name="duration" readonly placeholder="Auto-calculated">
                         </div>
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">Save Slot</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </form>
                 </div>

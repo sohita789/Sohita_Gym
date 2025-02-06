@@ -26,8 +26,7 @@ public class SlotsTimingsController {
 
     @GetMapping("/AddSlotact")
     public String onslots(@RequestParam("startTimings") String startTimings, @RequestParam("endTimings") String endTimings,
-                          @RequestParam("duration") String duration,
-                          Model model) {
+                          @RequestParam("duration") String duration, Model model) {
         boolean saved = gymService.saveSlots(startTimings, endTimings, duration);
         if (saved) {
             model.addAttribute("successMessage", "DetailsUpdatedSuccessfully");

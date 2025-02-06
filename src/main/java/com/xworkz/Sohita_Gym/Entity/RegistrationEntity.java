@@ -28,6 +28,8 @@ import java.time.LocalDateTime;
 @NamedQuery(name = "updatePasswordByName",query = "update RegistrationEntity re set re.password = :setNewPassword , re.count = :setCount where re.name = :nameBy")
 //forget password
 @NamedQuery(name = "resetPasswordByEmail", query = "update RegistrationEntity re set re.password = :setNewPassword where re.email = :emailBy")
+@NamedQuery(name = "getAllRegDetailsById",query = "select re from RegistrationEntity re where re.id=:getId")
+@NamedQuery(name = "updateUserProfileByName", query = "UPDATE RegistrationEntity re SET re.age=:getAge,re.height=:getHeight,re.weight=:getWeight,re.filePath=:getFilePath where re.name=:getName")
 
 
 public class RegistrationEntity {
@@ -49,10 +51,11 @@ public class RegistrationEntity {
     private int installment;
     private double balance;
     private int count;
-    private LocalDateTime accountLockedTime = LocalDateTime.now();
-//    @Column(name = "profile_image")
-//    private String profileImage;
-//
+    private LocalDateTime accountLockedTime;
+    //@Column(name = "file_path")
+    private String filePath;
+    private int height;
+    private int weight;
 }
 
 

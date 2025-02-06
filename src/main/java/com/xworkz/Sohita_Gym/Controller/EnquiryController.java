@@ -21,7 +21,7 @@ public class EnquiryController {
     }
 
     @PostMapping("/Enquiry")
-    public String onEnquiry(@ModelAttribute EnquiryDTO enquiryDTO, Model model) {
+    public String onEnquiry(EnquiryDTO enquiryDTO, Model model) {
         System.out.println("running onEnquiry method in GymController " + enquiryDTO);
         boolean isEnquired = gymService.saveEnquiry(enquiryDTO);
 
@@ -33,5 +33,4 @@ public class EnquiryController {
             return "Enquiry";
         }
     }
-
 }

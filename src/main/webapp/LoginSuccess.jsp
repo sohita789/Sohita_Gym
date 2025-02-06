@@ -35,7 +35,7 @@
 </head>
 <body>
     <div class="content-container">
-        <h1>LoggedIn Successfully</h1>
+        <h1> Admin LoggedIn Successfully</h1>
         <a href="Enquiry.jsp" class="btn btn-primary">Home</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

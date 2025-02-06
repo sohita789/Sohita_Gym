@@ -44,16 +44,17 @@ public class UserloginController {
             if (logInCount == -1) {
                 System.out.println("Redirecting to UpdatePassword page.");
                 String name = display.getName();
-                model.addAttribute("Name", name);
+                model.addAttribute("userName", name);
                 System.out.println(name);
                 model.addAttribute("msg", "UserSuccess");
                 return "ResetPassword";
             } else {
-                System.out.println("Redirecting to Success page.");
+                System.out.println("Redirecting to Userprofile page.");
                 String name = display.getName();
-                model.addAttribute("Name", name);
-                //model.addAttribute("filePath",userEntity.getFilePath());
-                return "Success";
+                model.addAttribute("userName", name);
+                model.addAttribute("register",display);
+                model.addAttribute("filePath",display.getFilePath());
+                return "UserProfile";
             }
 
         } else {
@@ -76,7 +77,7 @@ public class UserloginController {
         String msg = gymService.updatePasswordByName(name, oldPassword, newPassword, confirmPassword);
 
         if ("password updated successfully".equals(msg)) {
-            return "ForgetPassword";
+            return "Success";
         } else {
             return "ResetPassword";
         }

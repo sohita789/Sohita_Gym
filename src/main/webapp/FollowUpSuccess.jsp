@@ -35,7 +35,7 @@
 </head>
 <body>
     <div class="content-container">
-        <h1>FollowedUp  Successfully</h1>
+        <h1>FollowedUp Successfully</h1>
 
           <a href="index.jsp" class="btn btn-primary">Home</a>
 

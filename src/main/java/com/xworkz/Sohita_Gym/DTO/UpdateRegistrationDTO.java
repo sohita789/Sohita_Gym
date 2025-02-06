@@ -14,5 +14,6 @@ public class UpdateRegistrationDTO {
     private String trainerName;
     private int amount;
     private int balance;
+    private int amountPaid;
 }
 
