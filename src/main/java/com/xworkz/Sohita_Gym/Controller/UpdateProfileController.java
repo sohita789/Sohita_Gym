@@ -65,6 +65,7 @@ public class UpdateProfileController {
         response.flushBuffer();
     }
 
+
     @PostMapping("/updateUserProfile")
     public String onUpdating(@RequestParam String name, RegistrationDTO registrationDTO, @RequestParam("picture") MultipartFile multipartFile, Model model) throws IOException {
         System.out.println(name);

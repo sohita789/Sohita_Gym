@@ -800,11 +800,12 @@ public class GymRepoImplementation implements GymRepository {
     public List<TrainerinfoEntity> findAlltrainerlist() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
+       List<TrainerinfoEntity> result = null;
 
         try {
             transaction.begin();
             Query query = entityManager.createNamedQuery("GetTrainerInfoList");
-            List<TrainerinfoEntity> result = query.getResultList();
+            query.getResultList();
             transaction.commit();
             return result;
         } catch (Exception e) {
@@ -815,7 +816,7 @@ public class GymRepoImplementation implements GymRepository {
         } finally {
             entityManager.close();
         }
-        return null;
+        return result;
     }
 
     @Override
@@ -863,7 +864,34 @@ public class GymRepoImplementation implements GymRepository {
             em.close();
         }
         return null;
-    }}
+    }
+
+    @Override
+    public boolean getDeleteTrainersById(int id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            TrainerinfoEntity entity = em.find(TrainerinfoEntity.class,id);
+            if (entity != null) {
+                em.remove(entity);
+                et.commit();
+                return true;
+            }
+            return false;
+        }catch(Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+            e.printStackTrace();
+            return false;
+        }finally {
+            em.close();
+        }
+        }
+}
+
+
 
 
 

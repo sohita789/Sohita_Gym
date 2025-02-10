@@ -37,10 +37,10 @@
     <div class="content-container">
         <h1>Registered Successfully</h1>
         <a href="Success.jsp" class="btn btn-primary">Home</a>
+         <a href="UserLogin.jsp" class="btn btn-primary">UserLogin</a>
          <a href="UpdateRegistration.jsp" class="btn btn-primary">UpdateRegistration</a>
-         <a href="trainerslots.jsp" class="btn btn-primary">TrainerSlotDetails</a>
-
-    </div>
+         <a href="trainersSlots" class="btn btn-primary">trainersSlots</a>
+   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

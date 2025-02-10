@@ -26,32 +26,5 @@ public class ViewEnqDetailsEntity {
     private String Reasons;
     @ManyToOne
     @JoinColumn(name = "enquiryId", referencedColumnName = "enquiryId")
-    //@JoinColumn(name = "enquiryId", insertable = false, updatable = false)
     private EnquiryEntity enquiryEntity;
 }
-    ///////////////
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "view_id")
-//    private int viewId;
-//
-//    @Column(name = "Package")
-//    private String PackageType;
-//
-//    @Column(name = "Trainer")
-//    private String trainerName;
-//
-//    @Column(name = "Amount")
-//    private double amount;
-//
-//    @Column(name = "AmountPaid")
-//    private double amountPaid;
-//
-//    @Column(name = "Balance")
-//    private double balance;
-//
-//    @Column(name = "RegistrationUpdateDate")
-//    private LocalDate regUpdateDate;
-//
-//    private RegistrationEntity registrationEntity;
-//}

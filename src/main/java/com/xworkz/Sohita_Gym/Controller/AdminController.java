@@ -29,7 +29,7 @@ public class AdminController {
 
         if (read) {
             model.addAttribute("msg", "Login Successfully");
-            return "LoginSuccess";
+            return "Intermediate";
         } else {
             model.addAttribute("error", "Login is unSuccessFull");
             return "Admin";

@@ -7,9 +7,9 @@
     <title>GymWorld</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        /* Global Body Styling */
+
         body {
-            background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
+             background-image: url('https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -19,7 +19,7 @@
             color: #fff;
         }
 
-        /* Navbar Customization */
+
         .navbar {
             background-color: #004085; /* Dark Blue Color */
             padding: 15px 20px;
@@ -58,7 +58,7 @@
             text-align: center;
         }
 
-        /* Heading */
+
         .content-container h1 {
             font-size: 2.5rem;
             color: #007bff;
@@ -66,7 +66,6 @@
             font-weight: bold;
         }
 
-        /* Links Styling */
         .links a {
             display: block;
             padding: 15px;
@@ -80,7 +79,7 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .links a:hover {
+
             background-color: #0056b3;
             transform: translateY(-5px);
         }
@@ -99,36 +98,7 @@
     </style>
 </head>
 
-<body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">GymWorld</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="Admin.jsp">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Enquiry.jsp">Enquiry</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="FollowUp.jsp">FollowUp</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="search">Search</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Registration.jsp">Registration</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
+      <!-- Main Content -->
     <div class="container content-container">
         <h1>Welcome to GymWorld</h1>
         <div class="links">
@@ -137,12 +107,6 @@
 
       </div>
     </div>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

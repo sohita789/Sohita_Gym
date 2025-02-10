@@ -55,10 +55,11 @@ public interface GymRepository {
     Long getCountOfAdminUserNameByEmail(String email);
     Long getCountOfAdminUserNameByPassword(String password);
 
+    //slot
     public boolean saveSlots(SlotTimingsEntity slotTimings);
-
     List<SlotTimingsEntity> findallslots();
 
+    //traianer slot
     boolean savetrainerdetails(TrainerinfoEntity entity);
 
     List<TrainerinfoEntity> findAlltrainerlist();
@@ -66,6 +67,9 @@ public interface GymRepository {
     List<RegistrationEntity> getAllRegisteredUserDetailsById(int id);
 
     RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath);
+
+   public boolean getDeleteTrainersById(int id);
+
 }
 
 

@@ -24,10 +24,10 @@ public class RegistrationRestController {
         if (count > 0) {
             model.addAttribute("disp", "Name exists");
             System.out.println("Name exists");
-            return "name exists";
+            return "";
         } else {
             System.out.println("Name doesnt exists");
-            return "name doesnt exist";
+            return "";
         }
     }
 
@@ -38,10 +38,10 @@ public class RegistrationRestController {
         if (count > 0) {
             model.addAttribute("disp", "Age exists");
             System.out.println("Age exists");
-            return "age exists";
+            return "";
         } else {
             System.out.println("Age doesnt Exists");
-            return "Age doesnt exists";
+            return "";
         }
     }
 
@@ -52,10 +52,10 @@ public class RegistrationRestController {
         if (count > 0) {
             model.addAttribute("disp", "Email exists");
             System.out.println("Email exists");
-            return "email exists";
+            return "";
         } else {
             System.out.println("Email doesnt exists");
-            return "Email doesnt exists";
+            return "";
         }
     }
 
@@ -66,10 +66,10 @@ public class RegistrationRestController {
         if (count > 0) {
             model.addAttribute("disp", "PhoneNo exists");
             System.out.println("PhoneNo exists");
-            return "phoneNo exists";
+            return "";
         } else {
             System.out.println("phoneNo doesnt exists");
-            return "PhoneNo doesnt exists";
+            return "";
         }
     }
 
@@ -94,10 +94,10 @@ public class RegistrationRestController {
         if (count > 0) {
             model.addAttribute("disp", "GymName exists");
             System.out.println("GymName  exists");
-            return "GymName exists";
+            return "";
         } else {
             System.out.println("GymName doesnt exists");
-            return "GymName doesnt exists";
+            return "";
         }
     }
 
@@ -108,10 +108,10 @@ public class RegistrationRestController {
         if (count > 0) {
             model.addAttribute("disp", "trainerName exists");
             System.out.println("trainerName exists");
-            return "TrainerName exists";
+            return "";
         } else {
             System.out.println("TrainerName doesnt exists");
-            return "TrainerName doesnt exists";
+            return "";
         }
     }
 }

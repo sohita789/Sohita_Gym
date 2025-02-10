@@ -362,7 +362,6 @@ public class GymServiceImplementation implements GymService {
     @Override
     public List<TrainerinfoEntity> getAlltrainerdetails() {
         return gymRepository.findAlltrainerlist();
-
     }
 
     @Override
@@ -374,6 +373,11 @@ public class GymServiceImplementation implements GymService {
     @Override
     public RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath) {
         return gymRepository.updateUserProfile(name,registrationDTO,filePath);
+    }
+
+    @Override
+    public boolean getDeleteTrainersById(int id) {
+        return gymRepository.getDeleteTrainersById(id);
     }
 }
 

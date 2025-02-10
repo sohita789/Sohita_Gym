@@ -8,14 +8,13 @@
     <title>Follow-Up Page</title>
     <style>
         body {
-            background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
+         background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 20px;
             color: #333;
         }
-
-        h1 {
+ h1 {
             text-align: center;
             color: #2c3e50;
             font-size: 2em;
@@ -207,6 +206,6 @@
         </table>
     </div>
     <a href="index.jsp" class="btn btn-primary">Home</a>
-    <a href="ViewEnquiryDetails.jsp" class="btn btn-primary">ViewEnquiryDetails</a>
+
 </body>
 </html>

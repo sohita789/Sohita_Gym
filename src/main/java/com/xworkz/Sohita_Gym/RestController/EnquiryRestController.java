@@ -27,7 +27,7 @@ public class EnquiryRestController {
             return "name exists";
         } else {
             System.out.println("Name doesnt exists");
-            return "name doesnt exist";
+            return "";
         }
     }
 
@@ -41,7 +41,7 @@ public class EnquiryRestController {
             return "age exists";
         } else {
             System.out.println("Age doesnt Exists");
-            return "Age doesnt exists";
+            return "";
         }
     }
     @GetMapping(value = "/phoneNo/{phoneNo}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -54,7 +54,7 @@ public class EnquiryRestController {
             return "phoneNo exists";
         } else {
             System.out.println("phoneNo doesnt exists");
-            return "PhoneNo doesnt exists";
+            return "";
         }
     }
 

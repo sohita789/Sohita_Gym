@@ -31,6 +31,7 @@ public class TrainerAllotmentController {
     public String ontrainermanage(Model model) {
         List<SlotTimingsEntity> slots = gymService.getAllslots();
         model.addAttribute("slots", slots);
+
         List<TrainerinfoEntity> trainerinfolist = gymService.getAlltrainerdetails();
         model.addAttribute("trainerInfoList", trainerinfolist);
         return "trainerslots";
@@ -44,6 +45,7 @@ public class TrainerAllotmentController {
         if (saved) {
             List<SlotTimingsEntity> slots = gymService.getAllslots();
             model.addAttribute("slots", slots);
+
             List<TrainerinfoEntity> trainerinfolist = gymService.getAlltrainerdetails();
             model.addAttribute("trainerInfoList", trainerinfolist);
             model.addAttribute("successMessage", "TrainersDetailsUpdatedSuccessfully");
@@ -52,5 +54,31 @@ public class TrainerAllotmentController {
         model.addAttribute("errorMessage", "Failed ");
         return "trainerslots";
     }
+
+    @GetMapping("trainersSlots")
+    public String displayTrainers( Model model) {
+        List<TrainerinfoEntity> trainerinfolist = gymService.getAlltrainerdetails();
+        trainerinfolist.forEach((n) -> System.out.println(n));
+        model.addAttribute("trainerinfoList", trainerinfolist);
+      //  model.addAttribute("successMessage", "Trainer deleted successFully.");
+        return "trainerslots";
+    }
+
+
+    @GetMapping("/deleteSlot")
+   public String onDeleteSlot(@RequestParam int id,Model model){
+    boolean deleted= gymService.getDeleteTrainersById(id);
+    if(deleted) {
+        List<TrainerinfoEntity> trainerinfoEntityList = gymService.getAlltrainerdetails();
+        trainerinfoEntityList.forEach((n) -> System.out.println(n));
+        model.addAttribute("trainerinfoEntityList", trainerinfoEntityList);
+        model.addAttribute("SuccessMessage", "TrainerDetails Deleted");
+    }
+    else{
+        model.addAttribute("errorMessage", "Fail to delete");
+    }
+    return "trainerslots";
+    }
+
 }
 

@@ -1,4 +1,3 @@
-
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -108,8 +107,6 @@
     <div class="form-container">
         <h2>Registration Form</h2>
         <form action="register" method="post">
-
-
             <div class="form-group">
                 <c:forEach var="i" items="${error}">
                     <span style="color: red">${i.defaultMessage}</span>
@@ -158,18 +155,11 @@
 
                 <div class="form-group">
                     <label for="trainerName">Trainer Name:</label>
-                    <select class ="form-control" id="TrainerName" name="TrainerName" required>
-                     <option value="" data- trainerName="0">--Select TrainerName --</option>
-                      <option value="Omkar" data-trainerName="OMKAR">Omkar - 7am to 9am </option>
-                       <option value="Harisha_H_R" data-trainerName="Harisha_H_R">Harisha - 8am to 10am</option>
-                       <option value="Chethan_S_V" data-trainerName="Chethan_S_V">Chethan_S_V - 9am to 11am</option>
-                       <option value="Lalu Prasad" data-trainerName="Lalu Prasad">Lalu Prasad - 6pm to 8pm</option>
-                       <option value="Amith" data-trainerName="Amith">Amith - 7pm to 9pm</option>
-                       <option value="Kousalya" data-trainerName="Kousalya">Kousalya - 8pm to 10pm</option>
-                         </select>
-                         </div>
+                    <input type="text" id="trainerName" name="trainerName" class="form-control" placeholder="Enter your trainerName" required onchange="onTrainerName()">
+                    <span id="displayTrainerName" class="error-message"></span>
+                </div>
 
-                    <div class="form-group">
+                <div class="form-group">
                     <label for="amount">Amount:</label>
                     <input type="number" step="0.01" class="form-control" id="amount" name="amount" readonly required>
                 </div>
@@ -191,7 +181,7 @@
                     <span id="displayInstallment" class="error-message"></span>
                 </div>
 
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="balance">Balance:</label>
                     <input type="number" class="form-control" id="balance" name="balance" readonly required>
                     <span id="displayBalance" class="error-message"></span>
@@ -332,16 +322,6 @@
             }
         }
     </script>
-
-    <!-- Main Content -->
-    <div class="container content-container">
-        <h1>Welcome to GymWorld</h1>
-        <div class="links">
-
-             <a href="UserProfile.jsp">User Profile</a>
-              <a href="UpdateUserProfile.jsp">Update User Profile</a>
-        </div>
-    </div>
 </body>
 
 </html>

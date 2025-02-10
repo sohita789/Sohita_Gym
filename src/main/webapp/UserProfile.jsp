@@ -10,57 +10,55 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url('background.jpg'); /* Add your background image here */
-            background-size: cover;
-            background-repeat: no-repeat;
+         background-image: url(https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg);
+             justify-content: center;
             display: flex;
-            justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
         }
         .content {
-            padding: 20px;
+            padding: 15px; /* Reduced padding */
             background: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
             text-align: center;
-            margin: 20px;
+            margin: 10px; /* Reduced margin */
         }
         .profile-header {
-            font-size: 30px;
+            font-size: 28px; /* Slightly reduced font size */
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin-bottom */
         }
         .profile-image {
-            width: 120px;
-            height: 120px;
+            width: 100px; /* Slightly reduced size */
+            height: 100px; /* Slightly reduced size */
             border-radius: 50%;
             border: 3px solid #6a11cb;
             object-fit: cover;
-            margin: 0 auto 10px;
+            margin: 0 auto 5px; /* Reduced margin-bottom */
         }
         .upload-btn {
             display: block;
-            margin: 10px auto;
+            margin: 5px auto; /* Reduced margin */
             cursor: pointer;
             color: white;
             background: #007bff;
-            padding: 8px 12px;
+            padding: 6px 10px; /* Reduced padding */
             border-radius: 5px;
             border: none;
         }
         .profile-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 10px; /* Reduced margin-top */
         }
         .profile-table th, .profile-table td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 8px; /* Reduced padding */
             text-align: left;
         }
         .profile-table th {
@@ -69,10 +67,10 @@
         .btn {
             background: #dc3545;
             color: white;
-            padding: 10px 15px;
+            padding: 8px 12px; /* Reduced padding */
             border: none;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 10px; /* Reduced margin-top */
             border-radius: 5px;
             transition: background 0.3s ease;
         }
@@ -142,6 +140,5 @@
         <a href="update?id=${register.id}"><button class="btn">Update Profile</button></a>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@
+</body>
+</html>

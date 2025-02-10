@@ -106,8 +106,8 @@
                             <td>${trainer.phoneNumber}</td>
                             <td>${trainer.slotTimings}</td>
                             <td>
-                                <button class="btn btn-sm btn-danger" onclick="deleteTrainer('${trainer.id}')">Delete</button>
-                            </td>
+                                <a href="deleteSlot?id=${trainer.id}" class="btn btn-sm btn-danger" onClick="deleteTrainer('${trainer.id}')" ><i class="fas fa-eye"></li> Delete </a>
+                                </td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -130,7 +130,7 @@
                             <input type="text" id="name" class="form-control" name="Name" placeholder="Trainer Name" required>
                         </div>
 
-                        <div class="mb-3">
+                       <div class="mb-3">
                             <label for="phoneNumber" class="form-label">Phone Number:</label>
                             <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="Phone Number" required>
                         </div>
@@ -193,13 +193,14 @@
 <script>
     function deleteTrainer(id) {
         if (confirm("Are you sure?")) {
-            window.location.href = "DeleteTrainerServlet?id=" + id;
+            window.location.href = "trainersSlots?id=" + id;
         }
     }
 
     function calculateDuration() {
         let start = document.getElementById("startTimings").value;
         let end = document.getElementById("endTimings").value;
+
 
         if (start && end) {
             let startTime = new Date("1970-01-01T" + start);
@@ -213,9 +214,9 @@
                 document.getElementById("duration").value = hours + " hr " + minutes + " min";
             } else {
                 document.getElementById("duration").value = "Invalid Time";
-            }
-        }
-    }
+                }
+                }
+                }
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

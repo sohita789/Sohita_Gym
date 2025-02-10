@@ -90,7 +90,6 @@ public class UserloginController {
         System.out.println("Email:" + email);
         System.out.println("New Password:" + newPassword);
         System.out.println("ConfirmPassword:" + confirmPassword);
-
         String response = gymService.resetPasswordByEmail(email, newPassword, confirmPassword);
 
         if ("password updated successfully".equals(response)) {

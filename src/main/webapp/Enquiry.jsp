@@ -16,16 +16,14 @@
     <style>
         /* Body Styling */
         body {
-            background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Arial', sans-serif;
+          background-image: url(https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg);
+              background-color: #f8f9fa;
+              font-family: Arial, sans-serif;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
         }
 
         /* Navbar Styling */

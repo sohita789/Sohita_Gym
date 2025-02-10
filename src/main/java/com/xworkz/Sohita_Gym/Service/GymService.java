@@ -82,7 +82,7 @@ public interface GymService {
 
     //Update Profile
     List<RegistrationEntity> getAllRegisteredUserDetailsById(int id);
-
     RegistrationDTO updateUserProfile(String name,RegistrationDTO registrationDTO, String filePath);
 
+    boolean getDeleteTrainersById(int id);
 }

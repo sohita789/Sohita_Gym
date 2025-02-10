@@ -23,10 +23,10 @@ public class AdminRestController {
         if (count > 0) {
             model.addAttribute("disp", "Name exists");
             System.out.println("Name exists");
-            return "name exists";
+            return "";
         } else {
             System.out.println("Name doesnt exists");
-            return "name doesnt exist";
+            return "";
         }
     }
 
@@ -37,10 +37,10 @@ public class AdminRestController {
         if (count > 0) {
             model.addAttribute("disp", "Email exists");
             System.out.println("Email exists");
-            return "email exists";
+            return "";
         } else {
             System.out.println("Email doesnt exists");
-            return "Email doesnt exists";
+            return "";
         }
     }
     @GetMapping(value = "/password/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -50,10 +50,10 @@ public class AdminRestController {
         if (count > 0) {
             model.addAttribute("disp", "Password exists");
             System.out.println("password exists");
-            return "password exists";
+            return "";
         } else {
             System.out.println("Password exists");
-            return "Password doesnt exists";
+            return "";
         }
     }
 }

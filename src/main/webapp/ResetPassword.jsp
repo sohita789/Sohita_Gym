@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
-         background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
+         background-image: url(https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg);
             display: flex;
             justify-content: center;
             align-items: center;

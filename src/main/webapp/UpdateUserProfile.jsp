@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
+      background-image: url(https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg);
       background-color: #f8f9fa;
       font-family: Arial, sans-serif;
     }
@@ -18,6 +19,10 @@
     .container {
       max-width: 500px;
       margin-top: 50px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
     }
 
     .form-group label {
@@ -37,6 +42,10 @@
     .btn-primary:hover {
       background-color: #0056b3;
       border-color: #004085;
+    }
+
+    .text-center {
+      margin-bottom: 20px;
     }
   </style>
 </head>
