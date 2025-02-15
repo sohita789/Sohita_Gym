@@ -53,8 +53,7 @@ public class UpdateProfileController {
 
         }
 
-
-    @GetMapping("/download")
+        @GetMapping("/download")
     public void display(HttpServletResponse response, @RequestParam String filePath) throws  Exception{
         System.out.println("this is image"+filePath);
         response.setContentType("Image/jpg");

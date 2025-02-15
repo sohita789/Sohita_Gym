@@ -12,6 +12,9 @@ import com.xworkz.Sohita_Gym.Repository.GymRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -372,14 +375,32 @@ public class GymServiceImplementation implements GymService {
 
     @Override
     public RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath) {
-        return gymRepository.updateUserProfile(name,registrationDTO,filePath);
+        return gymRepository.updateUserProfile(name, registrationDTO, filePath);
     }
 
     @Override
     public boolean getDeleteTrainersById(int id) {
         return gymRepository.getDeleteTrainersById(id);
     }
+
+
+    //update
+    @Override
+    public RegistrationEntity getDetailsByEmail(String email) {
+        return gymRepository.findByEmailCustom(email);
+
+    }
+
+    @Override
+    public boolean updateDetailsById(String packageType, String trainerName, double amount, double amountPaid, double balance, int installment, int id) {
+        gymRepository.updateValuesById(packageType, trainerName, amount, amountPaid, balance, installment, id);
+        return true;
+    }
+
 }
+
+
+
 
 
 

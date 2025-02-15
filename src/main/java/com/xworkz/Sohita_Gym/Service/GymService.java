@@ -85,4 +85,8 @@ public interface GymService {
     RegistrationDTO updateUserProfile(String name,RegistrationDTO registrationDTO, String filePath);
 
     boolean getDeleteTrainersById(int id);
+
+    //update register details
+    RegistrationEntity getDetailsByEmail(String email);
+    public boolean updateDetailsById(String packages, String trainer, double amount, double amountPaid, double balance, int installment, int id);
 }

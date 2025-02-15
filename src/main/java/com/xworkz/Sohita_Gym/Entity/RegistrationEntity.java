@@ -31,6 +31,7 @@ import java.time.LocalDateTime;
 @NamedQuery(name = "getAllRegDetailsById",query = "select re from RegistrationEntity re where re.id=:getId")
 @NamedQuery(name = "updateUserProfileByName", query = "UPDATE RegistrationEntity re SET re.age=:getAge,re.height=:getHeight,re.weight=:getWeight,re.filePath=:getFilePath where re.name=:getName")
 
+@NamedQuery(name = "updateValuesById", query = "UPDATE RegistrationEntity p SET p.packageType = :setPackageType, p.trainerName = :setTrainerName, p.amount = :setAmount, p.amountPaid = :setPaid, p.balance = :setBalance, p.installment = :setInstallment where p.id = :idBy")
 
 public class RegistrationEntity {
 
@@ -56,6 +57,7 @@ public class RegistrationEntity {
     private String filePath;
     private int height;
     private int weight;
+
 }
 
 

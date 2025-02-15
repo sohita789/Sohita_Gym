@@ -20,9 +20,9 @@ public class AdminEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int id;
-     private String email;
-    private String password;
+      private int id;
+      private String email;
+      private String password;
 
 
 }

@@ -70,6 +70,9 @@ public interface GymRepository {
 
    public boolean getDeleteTrainersById(int id);
 
+    RegistrationEntity findByEmailCustom(String email);
+
+  boolean updateValuesById(String packageType, String trainerName, double amount, double amountPaid, double balance, int installment, int id);
 }
 
 

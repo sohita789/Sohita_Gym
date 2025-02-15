@@ -64,7 +64,6 @@ public class TrainerAllotmentController {
         return "trainerslots";
     }
 
-
     @GetMapping("/deleteSlot")
    public String onDeleteSlot(@RequestParam int id,Model model){
     boolean deleted= gymService.getDeleteTrainersById(id);

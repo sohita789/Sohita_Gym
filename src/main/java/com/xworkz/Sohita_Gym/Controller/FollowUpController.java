@@ -73,7 +73,6 @@ public class FollowUpController {
             return "ViewEnquiryDetails";
         }
     }
-
     @GetMapping("/view")
     public String viewPage(@RequestParam int enquiryId, Model model) {
         System.out.println("View method in the followUpController");

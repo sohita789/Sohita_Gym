@@ -29,7 +29,7 @@ public class SlotsTimingsController {
                           @RequestParam("duration") String duration, Model model) {
         boolean saved = gymService.saveSlots(startTimings, endTimings, duration);
         if (saved) {
-            model.addAttribute("successMessage", "DetailsUpdatedSuccessfully");
+            model.addAttribute( "successMessage","DetailsUpdatedSuccessfully");
             List<SlotTimingsEntity> slots = gymService.getAllslots();
             model.addAttribute("slots", slots);
             return "trainerslots";
