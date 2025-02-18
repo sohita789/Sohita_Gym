@@ -37,13 +37,12 @@ public interface GymRepository {
     boolean saveView(ViewEnqDetailsEntity viewEnqDetailsEntity);
 
     EnquiryEntity getEnquiryEntityByName(String name);
-   // public boolean updateUserdetails(RegistrationEntity entity);
-  //  RegistrationEntity findregistrationbyid(int registrationId);
+
 
     //userLogin
     RegistrationEntity userSave(String email);
     void updateCount(String email, int count);
-//    String updateAccountLockTimeByEmail(String email);
+
     boolean resetCount(String email, int count);
 
     String updateAccountLockTimeByEmail(String email);
@@ -59,7 +58,7 @@ public interface GymRepository {
     public boolean saveSlots(SlotTimingsEntity slotTimings);
     List<SlotTimingsEntity> findallslots();
 
-    //traianer slot
+    //trainer slot
     boolean savetrainerdetails(TrainerinfoEntity entity);
 
     List<TrainerinfoEntity> findAlltrainerlist();
@@ -68,12 +67,14 @@ public interface GymRepository {
 
     RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath);
 
-   public boolean getDeleteTrainersById(int id);
+    public boolean getDeleteTrainersById(int id);
 
     RegistrationEntity findByEmailCustom(String email);
 
-  boolean updateValuesById(String packageType, String trainerName, double amount, double amountPaid, double balance, int installment, int id);
+    boolean updateValuesById(String packageType, String trainerName, double amount, double amountPaid, double balance, int installment, int id);
+
 }
+
 
 
 

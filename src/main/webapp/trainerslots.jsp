@@ -10,31 +10,34 @@
     <style>
         body {
          background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
-         background-color: #f8f9fa; font-family: 'Arial', sans-serif; padding-top: 60px; }
+         background-color: lightblue;
+         font-family: 'Arial', sans-serif;
+          padding-top: 70px; }
         .navbar {
-         background-color: #007bff; }
+         background-color: pink; }
         .navbar-brand,
         .nav-link {
         color: #fff !important; }
         .container {
-        margin-top: 20px;
+        margin-top: 25px;
         }
         .card {
          border: none;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          margin-bottom: 20px; }
+          margin-bottom: 50px; }
         .card-header {
-         background-color: #007bff;
-         color: #fff;
+         background-color: pink;
+         color: black;
          font-weight: bold;
          }
         .btn-primary:hover {
-        background-color: #0056b3;
+        background-color: pink;
         }
         .btn-success:hover {
          background-color: #218838;
          }
-        .table th, .table td {
+        .table th,
+        .table td {
         vertical-align: middle;
          text-align: center;
           }

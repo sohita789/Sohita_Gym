@@ -23,13 +23,12 @@ public class AdminEntity {
       private int id;
       private String email;
       private String password;
-
-
+      private String image;
+//
+//    public Object getImage() {
+//
+//    }
 }
-//     @Column(name = "login_count")
-//     private  int login_count;
-//     @Column(name = "profile_image")
-//     private  String image;
 
 
 

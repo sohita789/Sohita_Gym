@@ -3,6 +3,7 @@ package com.xworkz.Sohita_Gym.Service;
 import com.xworkz.Sohita_Gym.DTO.EnquiryDTO;
 import com.xworkz.Sohita_Gym.DTO.RegistrationDTO;
 //import com.xworkz.Sohita_Gym.DTO.UserLoginDTO;
+//import com.xworkz.Sohita_Gym.DTO.TrainerDTO;
 import com.xworkz.Sohita_Gym.DTO.ViewEnqDetailsDTO;
 import com.xworkz.Sohita_Gym.Entity.*;
 //import com.xworkz.Sohita_Gym.Entity.UserLoginEntity;
@@ -23,7 +24,7 @@ public interface GymService {
     //Update Enquiry
     boolean updateStatusAndReason(String name, String status, String reasons);
 
-    //Enquiry
+    // get Enquiry details by status
     List<EnquiryEntity> getEnquiriesByStatus(String status);
 
     List<EnquiryEntity> getEnquiries();
@@ -82,11 +83,15 @@ public interface GymService {
 
     //Update Profile
     List<RegistrationEntity> getAllRegisteredUserDetailsById(int id);
-    RegistrationDTO updateUserProfile(String name,RegistrationDTO registrationDTO, String filePath);
 
-    boolean getDeleteTrainersById(int id);
+    RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath);
+
+     boolean getDeleteTrainersById(int id);
 
     //update register details
     RegistrationEntity getDetailsByEmail(String email);
+
     public boolean updateDetailsById(String packages, String trainer, double amount, double amountPaid, double balance, int installment, int id);
+
+
 }

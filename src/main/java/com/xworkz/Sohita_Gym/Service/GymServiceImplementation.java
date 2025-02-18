@@ -5,9 +5,6 @@ import com.xworkz.Sohita_Gym.DTO.*;
 
 
 import com.xworkz.Sohita_Gym.Entity.*;
-//import com.xworkz.Sohita_Gym.Entity.FollowEntity;
-//import com.xworkz.Sohita_Gym.Entity.UserLoginEntity;
-//import com.xworkz.Sohita_Gym.Entity.UpdateRegistrationDetailsEntity;
 import com.xworkz.Sohita_Gym.Repository.GymRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -397,7 +394,11 @@ public class GymServiceImplementation implements GymService {
         return true;
     }
 
+
 }
+
+
+
 
 
 

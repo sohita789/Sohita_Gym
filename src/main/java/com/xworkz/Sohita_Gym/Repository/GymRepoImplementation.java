@@ -800,12 +800,13 @@ public class GymRepoImplementation implements GymRepository {
     public List<TrainerinfoEntity> findAlltrainerlist() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
-        List<TrainerinfoEntity> result = null;
+       // List<TrainerinfoEntity> result = null;
 
         try {
             transaction.begin();
             Query query = entityManager.createNamedQuery("GetTrainerInfoList");
-            query.getResultList();
+            List<TrainerinfoEntity> result = query.getResultList();
+          // query.getResultList();
             transaction.commit();
             return result;
         } catch (Exception e) {
@@ -816,7 +817,7 @@ public class GymRepoImplementation implements GymRepository {
         } finally {
             entityManager.close();
         }
-        return result;
+        return null;
     }
 
     @Override
@@ -946,6 +947,7 @@ public class GymRepoImplementation implements GymRepository {
             em.close();
         }
     }
+
 
 }
 
