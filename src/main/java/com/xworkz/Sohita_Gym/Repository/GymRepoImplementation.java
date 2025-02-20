@@ -948,7 +948,100 @@ public class GymRepoImplementation implements GymRepository {
         }
     }
 
+    @Override
+    public List<RegistrationEntity> getAllDetails() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        try{
+            Query query = entityManager.createNamedQuery("getAllDetailsOfCustomer");
+            return query.getResultList();
 
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
+    @Override
+    public List<TrainerinfoEntity> getTrainerDetails() {
+        System.out.println("---------------get all details in RepoImpl-------------");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        try {
+            Query query = entityManager.createNamedQuery("getAllTrainerEntityDetails");
+            return query.getResultList();
+
+        } catch (Exception e) {
+            if (entityTransaction.isActive()) {
+                entityTransaction.rollback();
+            }
+            e.printStackTrace();
+            return Collections.emptyList();
+
+        }
+    }
+
+    @Override
+    public TrainerinfoEntity getDataByTrainerId(int id) {
+        System.out.println("======= getDataByTrainerId in repository =======");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        try {
+            Query query = entityManager.createNamedQuery("getTrainerEntityById");
+            query.setParameter("setId", id);
+            return (TrainerinfoEntity) query.getSingleResult();
+        } catch (Exception e) {
+            if (entityTransaction.isActive()) {
+                entityTransaction.rollback();
+            }
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public boolean updateTrainerEntity(TrainerinfoEntity entity) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        try {
+            entityTransaction.begin();
+            entityManager.merge(entity);
+            entityTransaction.commit();
+            return true;
+        } catch (Exception e) {
+            if (entityManagerFactory.createEntityManager().getTransaction().isActive())
+                entityManagerFactory.createEntityManager().getTransaction().rollback();
+            return false;
+
+        }
+    }
+
+    @Override
+    public boolean saveTrainerAssignDetails(AssignTrainersEntity assignTrainersEntity) {
+        System.out.println("=====saveTrainerAssignDetails in repo========");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+
+        try {
+            et.begin();
+            em.persist(assignTrainersEntity);
+            et.commit();
+            System.out.println("saved data in repository");
+            return true;
+        } catch (Exception e){
+            if(et.isActive()){
+                et.rollback();
+            }
+            System.out.println("not saved data in repository");
+
+        } finally {
+            em.close();
+        }
+        return false;
+    }
 }
 
 

@@ -1,5 +1,6 @@
 package com.xworkz.Sohita_Gym.Service;
 
+import com.xworkz.Sohita_Gym.DTO.AssignTrainerDTO;
 import com.xworkz.Sohita_Gym.DTO.EnquiryDTO;
 import com.xworkz.Sohita_Gym.DTO.RegistrationDTO;
 //import com.xworkz.Sohita_Gym.DTO.UserLoginDTO;
@@ -92,6 +93,14 @@ public interface GymService {
     RegistrationEntity getDetailsByEmail(String email);
 
     public boolean updateDetailsById(String packages, String trainer, double amount, double amountPaid, double balance, int installment, int id);
+//////////////////////
+    boolean saveTrainerAssignDetails(AssignTrainerDTO assignTrainerDTO);
+
+    List<RegistrationEntity> getAllDetails();
+
+    List<TrainerinfoEntity> getTrainerDetails();
+
+    TrainerinfoEntity getByIdToAssignTrainer(int id, String trainerName, String slotTimings);
 
 
 }

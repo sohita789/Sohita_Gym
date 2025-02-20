@@ -33,6 +33,7 @@ import java.time.LocalDateTime;
 
 @NamedQuery(name = "updateValuesById", query = "UPDATE RegistrationEntity p SET p.packageType = :setPackageType, p.trainerName = :setTrainerName, p.amount = :setAmount, p.amountPaid = :setPaid, p.balance = :setBalance, p.installment = :setInstallment where p.id = :idBy")
 
+@NamedQuery(name="getAllDetailsOfCustomer", query="select re from RegistrationEntity re")
 public class RegistrationEntity {
 
     @Id

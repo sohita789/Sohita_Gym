@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
@@ -350,10 +351,10 @@ public class GymServiceImplementation implements GymService {
     }
 
     @Override
-    public boolean savetrainerdetails(String name, String phoneNumber, String slotTimings) {
+    public boolean savetrainerdetails(String trainerName, String phoneNumber, String slotTimings) {
 
         TrainerinfoEntity entity = new TrainerinfoEntity();
-        entity.setName(name);
+        entity.setTrainerName(trainerName);
         entity.setPhoneNumber(phoneNumber);
         entity.setSlotTimings(slotTimings);
         return gymRepository.savetrainerdetails(entity);
@@ -394,9 +395,57 @@ public class GymServiceImplementation implements GymService {
         return true;
     }
 
+    @Override
+    public boolean saveTrainerAssignDetails(AssignTrainerDTO assignTrainerDTO) {
+        System.out.println("save assign trainer in serviceImpl");
+        AssignTrainersEntity entity = new AssignTrainersEntity();
+        entity.setName(assignTrainerDTO.getName());
+        entity.setTrainerName(assignTrainerDTO.getTrainerName());
+        entity.setSlotTimings(assignTrainerDTO.getSlotTimings());
+
+        boolean saved = gymRepository.saveTrainerAssignDetails(entity);
+        if(saved){
+            System.out.println("saved in serviceImpl");
+            return true;
+        }
+        System.out.println("not saved in serviceImpl");
+        return false;
+    }
+
+    @Override
+    public List<RegistrationEntity> getAllDetails() {
+        System.out.println("----------------------get alla details in ServiceImpl- --------------");
+        if((gymRepository.getAllDetails()!=null)){
+            return gymRepository.getAllDetails();
+        }
+        return Collections.emptyList();
+
+    }
+
+
+    @Override
+    public List<TrainerinfoEntity> getTrainerDetails() {
+        System.out.println("======--------getTrainerDetails in ServiceImpl-------======");
+        if((gymRepository.getTrainerDetails()!=null)){
+            return gymRepository.getTrainerDetails();
+        }
+        return Collections.emptyList();
+    }
+
+
+    @Override
+    public TrainerinfoEntity getByIdToAssignTrainer(int id, String trainerName, String slotTimings) {
+        TrainerinfoEntity trainerEntity = gymRepository.getDataByTrainerId(id);
+        if (trainerEntity != null) {
+            trainerEntity.setTrainerName(trainerName);  //setTrainername(trainer);
+            gymRepository.updateTrainerEntity(trainerEntity);
+            return trainerEntity;
+        }
+        return null;
+    }
+
 
 }
-
 
 
 

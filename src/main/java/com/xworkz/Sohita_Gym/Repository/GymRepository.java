@@ -73,6 +73,18 @@ public interface GymRepository {
 
     boolean updateValuesById(String packageType, String trainerName, double amount, double amountPaid, double balance, int installment, int id);
 
+
+    //------------------------------------------------------------
+    List<RegistrationEntity> getAllDetails();
+
+   ///////////////
+    List<TrainerinfoEntity> getTrainerDetails();
+
+    TrainerinfoEntity getDataByTrainerId(int id);
+
+    boolean updateTrainerEntity(TrainerinfoEntity entity);
+
+    boolean saveTrainerAssignDetails(AssignTrainersEntity assignTrainersEntity);
 }
 
 

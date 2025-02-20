@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-         background-image: url('https://healthandfitnesstravel.com/images/Gym20924a_copy.jpg');
+
          background-color: lightblue;
          font-family: 'Arial', sans-serif;
           padding-top: 70px; }
@@ -96,7 +96,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>trainerName</th>
                         <th>Phone Number</th>
                         <th>Slot Timings</th>
                         <th>Actions</th>
@@ -105,7 +105,7 @@
                 <tbody>
                     <c:forEach var="trainer" items="${trainerInfoList}">
                         <tr>
-                            <td>${trainer.name}</td>
+                            <td>${trainer.trainerName}</td>
                             <td>${trainer.phoneNumber}</td>
                             <td>${trainer.slotTimings}</td>
                             <td>

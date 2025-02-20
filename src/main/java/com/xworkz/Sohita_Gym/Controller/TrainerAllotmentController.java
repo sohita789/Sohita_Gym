@@ -28,58 +28,6 @@ public class TrainerAllotmentController {
     }
 
 
-//        @GetMapping("/trainersAllotmentact")
-//        public String ontrainermanage(Model model) {
-//            List<SlotTimingsEntity> slots = gymService.getAllslots();
-//            model.addAttribute("slots", slots);
-//
-//            List<TrainerinfoEntity> trainerinfolist = gymService.getAlltrainerdetails();
-//            model.addAttribute("trainerInfoList", trainerinfolist);
-//            return "trainerslots";
-//        }
-//
-//
-//        @PostMapping("/trainerAddact")
-//        public String ontraineradd(@RequestParam("Name") String name, @RequestParam("phoneNumber") String phoneNumber,
-//                                   @RequestParam("slotTimings") String slotTimings, Model model) {
-//            boolean saved = gymService.savetrainerdetails(name, phoneNumber, slotTimings);
-//            if (saved) {
-//                List<SlotTimingsEntity> slots = gymService.getAllslots();
-//                model.addAttribute("slots", slots);
-//
-//                List<TrainerinfoEntity> trainerinfoList = gymService.getAlltrainerdetails();
-//                model.addAttribute("trainerinfolist", trainerinfoList);
-//                model.addAttribute("successMessage", "TrainersDetailsUpdatedSuccessfully");
-//                return "trainerslots";
-//            }
-//            model.addAttribute("errorMessage", "Failed ");
-//            return "trainerslots";
-//        }
-//
-//        @GetMapping("trainersSlots")
-//        public String displayTrainers( Model model) {
-//            List<TrainerinfoEntity> trainerinfolist = gymService.getAlltrainerdetails();
-//            trainerinfolist.forEach((n) -> System.out.println(n));
-//            model.addAttribute("trainerinfolist", trainerinfolist);
-//            //  model.addAttribute("successMessage", "Trainer deleted successFully.");
-//            return "trainerslots";
-//        }
-//
-//        @GetMapping("/deleteSlot")
-//        public String onDeleteSlot(@RequestParam int id,Model model){
-//            boolean deleted= gymService.getDeleteTrainersById(id);
-//            if(deleted) {
-//                List<TrainerinfoEntity> trainerinfoEntityList = gymService.getAlltrainerdetails();
-//                trainerinfoEntityList.forEach((n) -> System.out.println(n));
-//                model.addAttribute("trainerinfoEntityList", trainerinfoEntityList);
-//                model.addAttribute("SuccessMessage", "TrainerDetails Deleted");
-//            }
-//            else{
-//                model.addAttribute("errorMessage", "Fail to delete");
-//            }
-//            return "trainerslots";
-//        }
-
     @GetMapping("/trainersAllotmentact")
     public String ontrainermanage(Model model) {
         List<SlotTimingsEntity> slots = gymService.getAllslots();
