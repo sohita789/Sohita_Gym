@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-
+         background-image:url(https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg);
          background-color: lightblue;
          font-family: 'Arial', sans-serif;
           padding-top: 70px; }
@@ -17,7 +17,7 @@
          background-color: pink; }
         .navbar-brand,
         .nav-link {
-        color: #fff !important; }
+        color: black !important; }
         .container {
         margin-top: 25px;
         }

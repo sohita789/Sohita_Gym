@@ -397,25 +397,45 @@ public class GymServiceImplementation implements GymService {
 
     @Override
     public boolean saveTrainerAssignDetails(AssignTrainerDTO assignTrainerDTO) {
+//        System.out.println("save assign trainer in serviceImpl");
+//        AssignTrainersEntity entity = new AssignTrainersEntity();
+//        entity.setName(assignTrainerDTO.getName());
+//        entity.setTrainerName(assignTrainerDTO.getTrainerName());
+//        entity.setSlotTimings(assignTrainerDTO.getSlotTimings());
+//
+//        boolean saved = gymRepository.saveTrainerAssignDetails(entity);
+//        if(saved){
+//            System.out.println("saved in serviceImpl");
+//            return true;
+//        }
+//        System.out.println("not saved in serviceImpl");
+//        return false;
+
         System.out.println("save assign trainer in serviceImpl");
         AssignTrainersEntity entity = new AssignTrainersEntity();
         entity.setName(assignTrainerDTO.getName());
         entity.setTrainerName(assignTrainerDTO.getTrainerName());
         entity.setSlotTimings(assignTrainerDTO.getSlotTimings());
 
-        boolean saved = gymRepository.saveTrainerAssignDetails(entity);
-        if(saved){
-            System.out.println("saved in serviceImpl");
-            return true;
+        try {
+            boolean saved = gymRepository.saveTrainerAssignDetails(entity);
+            if (saved) {
+                System.out.println("saved in serviceImpl");
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("Error occurred while saving trainer assignment details: " + e.getMessage());
+            e.printStackTrace();
         }
         System.out.println("not saved in serviceImpl");
         return false;
     }
 
+
     @Override
     public List<RegistrationEntity> getAllDetails() {
         System.out.println("----------------------get alla details in ServiceImpl- --------------");
-        if((gymRepository.getAllDetails()!=null)){
+        if ((gymRepository.getAllDetails() != null)) {
             return gymRepository.getAllDetails();
         }
         return Collections.emptyList();
@@ -426,7 +446,7 @@ public class GymServiceImplementation implements GymService {
     @Override
     public List<TrainerinfoEntity> getTrainerDetails() {
         System.out.println("======--------getTrainerDetails in ServiceImpl-------======");
-        if((gymRepository.getTrainerDetails()!=null)){
+        if ((gymRepository.getTrainerDetails() != null)) {
             return gymRepository.getTrainerDetails();
         }
         return Collections.emptyList();
@@ -443,9 +463,80 @@ public class GymServiceImplementation implements GymService {
         }
         return null;
     }
+    //fetching all names from EnquiryEntity in register
+    @Override
+    public List<EnquiryEntity> getAllEnquiry() {
+        System.out.println("----------------------get all details in ServiceImpl- --------------");
+        if((gymRepository.getAllEnquiry()!=null)){
+            return gymRepository.getAllEnquiry();
+        }
+        return Collections.emptyList();
+    }
 
+    @Override
+    public String getPhoneNumberByName(String name) {
+        System.out.println("======getPhoneNumberByName in service=======");
+        String num = gymRepository.getPhoneNumberByName(name);
+        return num;
+
+    }
+    ///   /////////////////////////////////////
+    @Override
+    public void saveUserDietAndExercise(int id, String filePath, UserExerciseAndDietDTO userExerciseAndDietDTO) {
+        UserExerciseAndDietEntity entity=new UserExerciseAndDietEntity();
+        entity.setId(id);
+        entity.setMonday(userExerciseAndDietDTO.getMonday());
+        entity.setTuesday(userExerciseAndDietDTO.getTuesday());
+        entity.setWednesday(userExerciseAndDietDTO.getWednesday());
+        entity.setThursday(userExerciseAndDietDTO.getThursday());
+        entity.setFriday(userExerciseAndDietDTO.getFriday());
+        entity.setSaturday(userExerciseAndDietDTO.getSaturday());
+        entity.setSunday(userExerciseAndDietDTO.getSunday());
+        entity.setMonth(userExerciseAndDietDTO.getMonth());
+        entity.setDietPlan(userExerciseAndDietDTO.getDietPlan());
+        entity.setUsermonthlyImage(filePath);
+        gymRepository.saveUserDietAndExercise(entity);
+        UserUpdatedExerciseAndDietEntity userUpdatedExerciseAndDietEntity=new UserUpdatedExerciseAndDietEntity();
+        userUpdatedExerciseAndDietEntity.setId(id);
+        userUpdatedExerciseAndDietEntity.setMonday(userExerciseAndDietDTO.getMonday());
+        userUpdatedExerciseAndDietEntity.setTuesday(userExerciseAndDietDTO.getTuesday());
+        userUpdatedExerciseAndDietEntity.setWednesday(userExerciseAndDietDTO.getWednesday());
+        userUpdatedExerciseAndDietEntity.setThursday(userExerciseAndDietDTO.getThursday());
+        userUpdatedExerciseAndDietEntity.setFriday(userExerciseAndDietDTO.getFriday());
+        userUpdatedExerciseAndDietEntity.setSaturday(userExerciseAndDietDTO.getSaturday());
+        userUpdatedExerciseAndDietEntity.setSunday(userExerciseAndDietDTO.getSunday());
+        userUpdatedExerciseAndDietEntity.setMonth(userExerciseAndDietDTO.getMonth());
+        userUpdatedExerciseAndDietEntity.setDietPlan(userExerciseAndDietDTO.getDietPlan());
+        userUpdatedExerciseAndDietEntity.setUsermonthlyImage(filePath);
+        gymRepository.saveUserUpdatedDietAndExercise(userUpdatedExerciseAndDietEntity);
+    }
+
+
+    @Override
+    public List<UserUpdatedExerciseAndDietEntity> getAlluserExerciseAndDietEntitiesById(int id) {
+        return gymRepository.getAlluserExerciseAndDietEntitiesById(id);
+
+    }
+
+    @Override
+    public List<UserExerciseAndDietEntity> getuserMonthlyImages(int id) {
+        return gymRepository.getuserMonthlyImages(id);
+    }
+
+    @Override
+    public List<RegistrationEntity> getAllRegistredUsersDetails() {
+        return gymRepository.getAllRegistredUsersDetails();
+
+    }
+
+    @Override
+    public List<RegistrationEntity> getAllRegistredUsersDetailsByNameAndPhoneNo(String searchName, Long searchPhoneNo) {
+        return gymRepository.getAllRegistredUsersDetailsByNameAndPhoneNo( searchName, searchPhoneNo);
+
+    }
 
 }
+
 
 
 

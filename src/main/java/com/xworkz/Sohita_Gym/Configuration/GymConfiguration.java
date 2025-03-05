@@ -46,6 +46,7 @@ public class GymConfiguration  implements WebMvcConfigurer {
 
     @Bean(name="multipartResolver")
     public CommonsMultipartResolver commonsMultipartResolver(){
+        System.out.println("created Method CommonsMultipartResolver");
         CommonsMultipartResolver commonsMultipartResolver=new CommonsMultipartResolver();
         return commonsMultipartResolver;
     }

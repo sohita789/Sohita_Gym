@@ -99,6 +99,8 @@
         <div class="links">
             <a href="Admin.jsp">Admin Login</a>
             <a href="UserLogin.jsp">User Login</a>
+            <a href="ExerciseAndDiet.jsp"> ExerciseAndDiet</a>
+
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

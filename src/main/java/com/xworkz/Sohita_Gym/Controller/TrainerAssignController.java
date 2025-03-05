@@ -23,7 +23,7 @@ public class TrainerAssignController {
     @Autowired
     private GymService gymService;
 
-    private List<GymTrainersNameEnum> trainerNames = new ArrayList<>(Arrays.asList(GymTrainersNameEnum.values()));
+    // private List<GymTrainersNameEnum> trainerNames = new ArrayList<>(Arrays.asList(GymTrainersNameEnum.values()));
 
     public TrainerAssignController() {
         System.out.println("created TrainerAssignController");
@@ -35,31 +35,31 @@ public class TrainerAssignController {
         boolean savedData = gymService.saveTrainerAssignDetails(assignTrainerDTO);
         if (savedData) {
             model.addAttribute("msg", "saved data");
-            return "Success";
+            return "AssignTrainersSuccess";
         } else {
             model.addAttribute("error", "Not Saved");
             return "AssignTrainersToUser";
         }
     }
 
-        //fetching data from two tables
-        @GetMapping("/noTrainer")
+    //fetching data from two tables
+    @GetMapping("/noTrainer")
 
-        public String displayDetails (Model model){
-            System.out.println("displayDetails in controller");
-            // Fetch customer details without trainer
-            List<RegistrationEntity> customerList = gymService.getAllDetails();
-            System.out.println("=============:"+customerList);
-            // Fetch trainer details
-            List<TrainerinfoEntity> trainerList = gymService.getTrainerDetails();
+    public String displayDetails(Model model) {
+        System.out.println("displayDetails in controller");
+        // Fetch customer details without trainer
+        List<RegistrationEntity> customerList = gymService.getAllDetails();
+        System.out.println("=============:" + customerList);
+        // Fetch trainer details
+        List<TrainerinfoEntity> trainerList = gymService.getTrainerDetails();
 
-            // Add both lists to the model
-            model.addAttribute("noTrainerList", customerList);
-            model.addAttribute("TrainerEntityList", trainerList);
+        // Add both lists to the model
+        model.addAttribute("noTrainerList", customerList);
+        model.addAttribute("TrainerEntityList", trainerList);
 
-            // Return the same JSP view with both data sets
-            return "AssignTrainersToUser";  // Same JSP for both sets of data
-        }
+        // Return the same JSP view with both data sets
+        return "AssignTrainersToUser";  // Same JSP for both sets of data
+    }
 
         //updating trainerName and Timing slots
         @PostMapping("/trainee{id}")
@@ -70,7 +70,7 @@ public class TrainerAssignController {
 
             TrainerinfoEntity trainerEntity = gymService.getByIdToAssignTrainer(id, trainerName, slotTimings);
             if (trainerEntity != null) {
-                return "Success";
+                return "AssignTrainersSuccess";
             }
             return "AssignTrainersToUser";
         }

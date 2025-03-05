@@ -33,9 +33,13 @@ public interface GymRepository {
     long countBalance(String balance);
     long countPassword(String password);
 
+    // Get all the ViewEnquiryDetails \\
     List<ViewEnqDetailsEntity> getAllData(int enquiryId);
+
+    // Save The ViewEnquiryDetails \\
     boolean saveView(ViewEnqDetailsEntity viewEnqDetailsEntity);
 
+    // Get EnquiryDetails By Name \\
     EnquiryEntity getEnquiryEntityByName(String name);
 
 
@@ -45,8 +49,10 @@ public interface GymRepository {
 
     boolean resetCount(String email, int count);
 
+    // AccountLock Time\\
     String updateAccountLockTimeByEmail(String email);
 
+    // Update the Registration details\\
     RegistrationEntity updateRegistration(String name, long phoneNo);
     String updatePasswordByName(String newPassword, String name);
     String resetPasswordByEmail(String email, String newPassword);
@@ -54,15 +60,18 @@ public interface GymRepository {
     Long getCountOfAdminUserNameByEmail(String email);
     Long getCountOfAdminUserNameByPassword(String password);
 
-    //slot
+    //save the slot timings\\
     public boolean saveSlots(SlotTimingsEntity slotTimings);
+    // get All The Slots\\
     List<SlotTimingsEntity> findallslots();
 
-    //trainer slot
+    //Save TrainerDetails//
     boolean savetrainerdetails(TrainerinfoEntity entity);
 
+    // Get all TrainersList\\
     List<TrainerinfoEntity> findAlltrainerlist();
 
+    // Get the userDetails By id\\
     List<RegistrationEntity> getAllRegisteredUserDetailsById(int id);
 
     RegistrationDTO updateUserProfile(String name, RegistrationDTO registrationDTO, String filePath);
@@ -74,17 +83,36 @@ public interface GymRepository {
     boolean updateValuesById(String packageType, String trainerName, double amount, double amountPaid, double balance, int installment, int id);
 
 
-    //------------------------------------------------------------
+    // Get All TRhe Registration Details\\
     List<RegistrationEntity> getAllDetails();
 
-   ///////////////
+     // Get the TrainerDetails\\
     List<TrainerinfoEntity> getTrainerDetails();
 
+    // Get The TrainerData By id\\
     TrainerinfoEntity getDataByTrainerId(int id);
 
+    // Update The TrainerEntity \\
     boolean updateTrainerEntity(TrainerinfoEntity entity);
 
+    // Save The TrainerAssign Details\\
     boolean saveTrainerAssignDetails(AssignTrainersEntity assignTrainersEntity);
+
+    //fetching all names from EnquiryEntity in register
+    List<EnquiryEntity> getAllEnquiry();
+
+    String getPhoneNumberByName(String name);
+
+    ///////////////////////////////////
+    List<RegistrationEntity> getAllRegistredUsersDetails();
+    List<RegistrationEntity> getAllRegistredUsersDetailsByNameAndPhoneNo(String searchName, Long searchPhoneNo);
+
+
+    void saveUserDietAndExercise(UserExerciseAndDietEntity entity);
+    List<UserUpdatedExerciseAndDietEntity> getAlluserExerciseAndDietEntitiesById(int id);
+    void saveUserUpdatedDietAndExercise(UserUpdatedExerciseAndDietEntity entity);
+    List<UserExerciseAndDietEntity> getuserMonthlyImages(int id);
+
 }
 
 

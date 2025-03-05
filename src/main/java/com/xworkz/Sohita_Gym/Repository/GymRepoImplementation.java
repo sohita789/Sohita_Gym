@@ -971,6 +971,7 @@ public class GymRepoImplementation implements GymRepository {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
         try {
+            entityTransaction.begin();
             Query query = entityManager.createNamedQuery("getAllTrainerEntityDetails");
             return query.getResultList();
 
@@ -990,6 +991,7 @@ public class GymRepoImplementation implements GymRepository {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
         try {
+            entityTransaction.begin();
             Query query = entityManager.createNamedQuery("getTrainerEntityById");
             query.setParameter("setId", id);
             return (TrainerinfoEntity) query.getSingleResult();
@@ -1021,7 +1023,7 @@ public class GymRepoImplementation implements GymRepository {
 
     @Override
     public boolean saveTrainerAssignDetails(AssignTrainersEntity assignTrainersEntity) {
-        System.out.println("=====saveTrainerAssignDetails in repo========");
+        System.out.println("=====-------saveTrainerAssignDetails in repo------========");
         EntityManager em = entityManagerFactory.createEntityManager();
         EntityTransaction et = em.getTransaction();
 
@@ -1032,16 +1034,177 @@ public class GymRepoImplementation implements GymRepository {
             System.out.println("saved data in repository");
             return true;
         } catch (Exception e){
-            if(et.isActive()){
-                et.rollback();
-            }
+            e.printStackTrace();
+            et.rollback();
+            et.isActive();
             System.out.println("not saved data in repository");
-
+           return false;
         } finally {
             em.close();
         }
-        return false;
     }
+
+    @Override
+    public List<EnquiryEntity> getAllEnquiry() {
+        System.out.println("---------------getAllEnquiry in RepoImpl-------------");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        try {
+            entityTransaction.begin();
+            Query query = entityManager.createNamedQuery("getAllDetailsOfEnquiry");
+            return query.getResultList();
+
+        } catch (Exception e) {
+            if (entityTransaction.isActive()) {
+                entityTransaction.rollback();
+            }
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
+    @Override
+    public String getPhoneNumberByName(String name) {
+        System.out.println("---------------getPhoneNumberByName in RepoImpl-------------");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        String phone= null;
+        try {
+
+            Query query = entityManager.createNamedQuery("getPhoneNoByName");
+            query.setParameter("setName", name);
+            Long phoneNumber = (Long) query.getSingleResult();  // Assuming it's stored as Long in DB
+            return phoneNumber.toString(); // Convert to String if needed
+
+        } catch (Exception e) {
+            if (entityTransaction.isActive()) {
+                entityTransaction.rollback();
+            }
+            e.printStackTrace();
+
+        }
+        return phone;
+    }
+
+//---------------for diet plan-------
+
+    @Override
+    public List<RegistrationEntity> getAllRegistredUsersDetails() {
+        System.out.println("========getAllRegistredUsersDetails in repo==========");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        List<RegistrationEntity> list= em.createNamedQuery("getAllRegistredUsersDetails",RegistrationEntity.class).getResultList();
+
+        try {
+            et.begin();
+
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+        } finally {
+            em.close();
+        }
+        return list;
+    }
+
+    @Override
+    public List<RegistrationEntity> getAllRegistredUsersDetailsByNameAndPhoneNo(String searchName, Long searchPhoneNo) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+
+        List<RegistrationEntity> list=em.createNamedQuery("getAllRegistredUsersDetailsByNameAndPhoneNo")
+                .setParameter("getName",searchName)
+                .setParameter("getPhoneNo",searchPhoneNo)
+                .getResultList();
+        try {
+            et.begin();
+
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+        } finally {
+            em.close();
+        }
+
+        return list;
+    }
+
+    @Override
+    public void saveUserDietAndExercise(UserExerciseAndDietEntity entity) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            em.persist(entity);
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public List<UserUpdatedExerciseAndDietEntity> getAlluserExerciseAndDietEntitiesById(int id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        List<UserUpdatedExerciseAndDietEntity> list= em.createNamedQuery("getAlluserExerciseAndDietEntitiesById",UserUpdatedExerciseAndDietEntity.class).setParameter("getId",id).getResultList();
+        try {
+            et.begin();
+
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }        } finally {
+            em.close();
+        }
+
+        System.out.println(list);
+        return list;
+    }
+
+    @Override
+    public void saveUserUpdatedDietAndExercise(UserUpdatedExerciseAndDietEntity entity) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            em.merge(entity);
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public List<UserExerciseAndDietEntity> getuserMonthlyImages(int id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        List<UserExerciseAndDietEntity> list= em.createNamedQuery("getuserMonthlyImages",UserExerciseAndDietEntity.class).setParameter("getId",id).getResultList();
+
+        try {
+            et.begin();
+            et.commit();
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }        } finally {
+            em.close();
+        }
+        System.out.println(list);
+        return list;
+    }
+
+
 }
 
 

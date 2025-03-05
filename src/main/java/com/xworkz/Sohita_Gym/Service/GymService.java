@@ -1,11 +1,8 @@
 package com.xworkz.Sohita_Gym.Service;
 
-import com.xworkz.Sohita_Gym.DTO.AssignTrainerDTO;
-import com.xworkz.Sohita_Gym.DTO.EnquiryDTO;
-import com.xworkz.Sohita_Gym.DTO.RegistrationDTO;
+import com.xworkz.Sohita_Gym.DTO.*;
 //import com.xworkz.Sohita_Gym.DTO.UserLoginDTO;
 //import com.xworkz.Sohita_Gym.DTO.TrainerDTO;
-import com.xworkz.Sohita_Gym.DTO.ViewEnqDetailsDTO;
 import com.xworkz.Sohita_Gym.Entity.*;
 //import com.xworkz.Sohita_Gym.Entity.UserLoginEntity;
 import java.util.List;
@@ -93,14 +90,29 @@ public interface GymService {
     RegistrationEntity getDetailsByEmail(String email);
 
     public boolean updateDetailsById(String packages, String trainer, double amount, double amountPaid, double balance, int installment, int id);
-//////////////////////
-    boolean saveTrainerAssignDetails(AssignTrainerDTO assignTrainerDTO);
+
+    //Assign Trainers
+  public  boolean saveTrainerAssignDetails(AssignTrainerDTO assignTrainerDTO);
 
     List<RegistrationEntity> getAllDetails();
 
     List<TrainerinfoEntity> getTrainerDetails();
 
     TrainerinfoEntity getByIdToAssignTrainer(int id, String trainerName, String slotTimings);
+///  ////////////////////////////
+    List<EnquiryEntity> getAllEnquiry();
+
+    public  String getPhoneNumberByName(String name);
+    ////////////////////////
+
+    public  void saveUserDietAndExercise(int id, String filePath, UserExerciseAndDietDTO userExerciseAndDietDTO);
+
+    List<UserUpdatedExerciseAndDietEntity> getAlluserExerciseAndDietEntitiesById(int id);
+
+    List<UserExerciseAndDietEntity> getuserMonthlyImages(int id);
 
 
+    List<RegistrationEntity> getAllRegistredUsersDetails();
+
+    List<RegistrationEntity> getAllRegistredUsersDetailsByNameAndPhoneNo(String searchName, Long searchPhoneNo);
 }

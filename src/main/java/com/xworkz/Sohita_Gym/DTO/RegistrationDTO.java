@@ -30,13 +30,20 @@ public class RegistrationDTO {
     @NotNull
     @Size(min = 3, max = 20,message ="TrainerName size must be between 3 to 20 characters")
     private String trainerName;
+    @NotNull
     private double amount;
+    @NotNull
     private double amountPaid;
+    @NotNull
     private String discount;
+    @NotNull
     private int installment;
+    @NotNull
     private double balance;
   //  private String filePath;
-  private int height;
+    @NotNull
+    private int height;
+    @NotNull
     private int weight;
 
 

@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 
 public class AdminAbstractAuditEntity implements Serializable {
-
     private String  createdBy;
     private LocalDateTime createdDate  = LocalDateTime.now();
     private String updatedBy;

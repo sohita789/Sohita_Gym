@@ -14,12 +14,12 @@ public class SlotTimingsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-  // @Column(name = "StartTime")
+    @Column(name = "startTimings")
     private String startTimings;
 
-  // @Column(name = "EndTime")
+    @Column(name = "endTimings")
     private String endTimings;
 
-    @Column(name = "Duration")
+    @Column(name = "duration")
     private String duration;
 }

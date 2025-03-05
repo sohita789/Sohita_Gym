@@ -12,6 +12,7 @@
 
     <style>
         body {
+         background-image: url('https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg');
           background-color: white;
             background-size: cover;
             background-position: center;
@@ -88,7 +89,7 @@
                         <a class="nav-link active" href="search"><i class="fas fa-users"></i> FollowUp</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="Registration.jsp"><i class="fas fa-user-plus"></i> Registration</a>
+                        <a class="nav-link active" href="register"><i class="fas fa-user-plus"></i> Registration</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="UpdateRegister.jsp"><i class="fas fa-edit"></i> Update</a>
@@ -102,24 +103,34 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="UpdateUserProfile.jsp"><i class="fas fa-eye"></i> UpdateUserProfile</a>
                     </li>
-                    <li class="nav-item">
+
+                <!--     <li class="nav-item">
                         <a class="nav-link active" href="UserProfile.jsp"><i class="fas fa-eye"></i> UserProfile</a>
                     </li>
-                     <li class="nav-item">
+
+                    <li class="nav-item">
                          <a class="nav-link active" href="noTrainer"><i class="fas fa-eye"> AssignTrainersToUser</i> </a>
-                                        </li>
+                      </li> -->
+
+                         <li class="nav-item">
+                          <a class="nav-link active" href="ExerciseAndDiet.jsp"><i class="fas fa-eye"></i>ExerciseAndDiet</a>
+                           </li>
+
+
+                       <li class="nav-item">
+                         <a class="nav-link active" href="UpdateExerciseAndDiet"><i class="fas fa-eye"> </i>UpdateUserExerciseAndDiet </a>
+                        </li>
+
+
+<li class="nav-item">
+   <a class="nav-link active" href="viewUserExercise"><i class="fas fa-eye"> </i>ViewExerciseAndDiet </a>
+                  </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="content-container">
-        <h1><i class="fa fa-dumbbell"></i> Welcome to the Sohita_Gym</h1>
-        <p>The Journey of Fitness and Good Health Begins Here......</p>
-    </div>
-
-    <!-- Bootstrap JS -->
+  <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

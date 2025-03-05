@@ -21,13 +21,13 @@ public class AdminEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
       private int id;
+      @Column(name= "email")
       private String email;
+      @Column(name= "password")
       private String password;
+      @Column(name= "image")
       private String image;
-//
-//    public Object getImage() {
-//
-//    }
+
 }
 
 

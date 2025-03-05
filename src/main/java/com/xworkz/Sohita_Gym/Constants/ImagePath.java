@@ -10,6 +10,7 @@ public enum ImagePath {
     private String path;
 
     ImagePath(String path) {
+
         this.path = path;
     }
 }
