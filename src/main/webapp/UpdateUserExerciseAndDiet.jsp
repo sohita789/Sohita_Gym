@@ -11,7 +11,7 @@
         body {
           min-height: 100vh;
           margin: 0;
-          background-image: url("https://img.freepik.com/premium-photo/3d-rendering-iron-fitness-equipment-black-podium_338925-153.jpg?w=1060");
+          background-image: url("https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg");
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -243,7 +243,7 @@
           }
              #nameValid {
                       margin-top: 10px;
-                      color: green;
+                      color: red;
                   }
 
                    .header .profile-img {
@@ -266,7 +266,7 @@
 <header class="header">
     <!-- Logo -->
     <div class="logo">
-        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=277,h=270,fit=crop/AwvJoE0xx0IZMJ8K/ft_power_gym_logo_file_png-01-Yg2apa87NxI6eQXX.png" alt="Logo" class="logo-img">
+        <img src="https://static.vecteezy.com/system/resources/previews/000/468/147/original/vector-fitness-club-logo.jpg" alt="Logo" class="logo-img">
     </div>
 
     <!-- Navigation centered -->
@@ -288,18 +288,18 @@
     </div>
 
     <!-- Toggle Menu -->
-    <nav class="mobile-nav">
-        <a href="homePage">Home</a>
-        <a href="enquiry">Enquiry</a>
-        <a href="followup">FollowUp</a>
-        <a href="register">Registration</a>
-        <a href="registrationUpdate">Update</a>
-        <a href="addSlots">Slots</a>
-        <a href="viewtrainer">View Trainer</a>
-        <a href="AssignUsers">AssignUsers</a>
-         <a href="UpdateExerciseAndDiet">UpdateUserExerciseAndDiet</a>
-        <a href="index.jsp">Logout</a>
-    </nav>
+        <nav class="mobile-nav">
+            <a href="homePage">Home</a>
+            <a href="enquiry">Enquiry</a>
+            <a href="followup">FollowUp</a>
+            <a href="register">Registration</a>
+            <a href="registrationUpdate">Update</a>
+            <a href="addSlots">Slots</a>
+            <a href="viewtrainer">View Trainer</a>
+            <a href="AssignUsers">AssignUsers</a>
+             <a href="UpdateExerciseAndDiet">UpdateUserExerciseAndDiet</a>
+             <a href="index.jsp">Logout</a>
+        </nav>
 </header>
 
 
@@ -353,6 +353,7 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     <c:forEach items="${list}" var="enquiry">
                         <tr>
                             <form action="updateDiet" >  <!-- Form for each row -->

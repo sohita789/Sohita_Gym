@@ -287,7 +287,7 @@ input[type="month"] {
   <header class="header">
     <!-- Logo -->
     <div class="logo">
-      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=277,h=270,fit=crop/AwvJoE0xx0IZMJ8K/ft_power_gym_logo_file_png-01-Yg2apa87NxI6eQXX.png" alt="Logo" class="logo-img">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/468/147/original/vector-fitness-club-logo.jpg" alt="Logo" class="logo-img">
     </div>
 
     <!-- Navigation centered -->
@@ -317,16 +317,17 @@ input[type="month"] {
       <a href="register">Registration</a>
       <a href="registrationUpdate">Update</a>
        <a href="addSlots">Slots</a>
-              <a href="viewtrainer">View Trainer</a>
-                <a href="AssignUsers">AssignUsers</a>
-                 <a href="UpdateExerciseAndDiet">UpdateUserExerciseAndDiet</a>
+       <a href="viewtrainer">View Trainer</a>
+       <a href="AssignUsers">AssignUsers</a>
+         <a href="UpdateExerciseAndDiet">UpdateUserExerciseAndDiet</a>
 
-                <a href="index.jsp">Logout</a>
+         <a href="index.jsp">Logout</a>
 
     </nav>
   </header>
-
 <form id="exercisediet" enctype="multipart/form-data" action="exercisediet" method="post">
+
+
     <!-- Weekly Exercise Plan -->
     <div class="week-container">
         <h2 style="color:#00fdff;">Weekly Exercise Plan</h2>

@@ -12,8 +12,7 @@
 
     <style>
         body {
-         background-image: url('https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg');
-          background-color: white;
+            background-image: url('https://img.freepik.com/premium-photo/young-girl-lifting-weights-gym_156140-2823.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -22,8 +21,7 @@
             font-family: 'Arial', sans-serif;
             color: white;
             margin: 0;
-            padding-top: 70px; /* Content starts below the navbar */
-            background-color: rgba(0, 0, 0, 0.6);
+            padding-top: 70px;
         }
 
         .content-container {
@@ -51,21 +49,33 @@
 
         /* Navbar Styling */
         .navbar {
-            background-color: pink;
+            background-color: skyblue;
         }
 
         .navbar-nav .nav-link {
             font-size: 1.1rem;
             color: black !important;
             margin: 0 10px;
+            transition: color 0.3s;
         }
 
         .navbar-nav .nav-link:hover {
-            color: #ffcc00 !important;
+            color: red !important;
         }
 
-        .navbar-nav .nav-link .fa {
-            margin-right: 8px;
+        .navbar-toggler {
+            border-color: white;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -79,58 +89,27 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="Admin.jsp"><i class="fas fa-search"></i> Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="Enquiry.jsp"><i class="fas fa-search"></i> Enquiry</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="search"><i class="fas fa-users"></i> FollowUp</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="register"><i class="fas fa-user-plus"></i> Registration</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="UpdateRegister.jsp"><i class="fas fa-edit"></i> Update</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="trainerslots.jsp"><i class="fas fa-calendar-alt"></i> TrainersSlot</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="ViewEnquiryDetails.jsp"><i class="fas fa-eye"></i> ViewEnquiryDetails</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="UpdateUserProfile.jsp"><i class="fas fa-eye"></i> UpdateUserProfile</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="Admin.jsp"><i class="fas fa-user-shield"></i> Admin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Enquiry.jsp"><i class="fas fa-question-circle"></i> Enquiry</a></li>
+                    <li class="nav-item"><a class="nav-link" href="search"><i class="fas fa-users"></i> FollowUp</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register"><i class="fas fa-user-plus"></i> Registration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="UpdateRegister.jsp"><i class="fas fa-edit"></i> Update</a></li>
+                    <li class="nav-item"><a class="nav-link" href="trainerslots.jsp"><i class="fas fa-calendar-alt"></i> Trainers Slot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ViewEnquiryDetails.jsp"><i class="fas fa-eye"></i> View Enquiry</a></li>
+                    <li class="nav-item"><a class="nav-link" href="UpdateUserProfile.jsp"><i class="fas fa-user-edit"></i> Update Profile</a></li>
 
-                <!--     <li class="nav-item">
-                        <a class="nav-link active" href="UserProfile.jsp"><i class="fas fa-eye"></i> UserProfile</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="UpdateExerciseAndDiet"><i class="fas fa-sync"></i> UpdateUserExerciseAndDiet</a></li>
 
-                    <li class="nav-item">
-                         <a class="nav-link active" href="noTrainer"><i class="fas fa-eye"> AssignTrainersToUser</i> </a>
-                      </li> -->
-
-                         <li class="nav-item">
-                          <a class="nav-link active" href="ExerciseAndDiet.jsp"><i class="fas fa-eye"></i>ExerciseAndDiet</a>
-                           </li>
+                 <!--   <li class="nav-item"><a class="nav-link" href="UpdateExerciseAndDiet"><i class="fas fa-sync"></i> Update Exercise & Diet</a></li> -->
 
 
-                       <li class="nav-item">
-                         <a class="nav-link active" href="UpdateExerciseAndDiet"><i class="fas fa-eye"> </i>UpdateUserExerciseAndDiet </a>
-                        </li>
-
-
-<li class="nav-item">
-   <a class="nav-link active" href="viewUserExercise"><i class="fas fa-eye"> </i>ViewExerciseAndDiet </a>
-                  </li>
+                    <li class="nav-item"><a class="nav-link" href="viewUserExercise"><i class="fas fa-eye"></i> ViewExerciseAndDiet</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-  <!-- Bootstrap JS -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

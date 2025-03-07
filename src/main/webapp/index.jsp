@@ -17,6 +17,10 @@
             color: #fff;
             position: relative;
         }
+        .logo-img {
+              max-height: 60px;
+              height: auto;
+            }
         /* Overlay to enhance readability */
         .overlay {
             position: absolute;
@@ -93,6 +97,12 @@
     </style>
 </head>
 <body>
+<!-- Header Section -->
+  <header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/468/147/original/vector-fitness-club-logo.jpg" alt="Logo" class="logo-img">
+    </div>
 
     <div class="container content-container">
         <h1>Welcome to GymWorld</h1>

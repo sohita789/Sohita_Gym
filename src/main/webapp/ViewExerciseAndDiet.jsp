@@ -275,6 +275,7 @@
         </div>
     </div>
 
+
     <!-- Toggle Menu -->
     <nav class="mobile-nav">
         <a href="homePage">Home</a>
@@ -330,6 +331,7 @@
         <div id="all-images-container" class="image-container">
             <!-- Display all images with month names -->
             <c:forEach var="monthlyImages" items="${monthlyImages}">
+
                 <div class="month-image">
                     <div class="text-container">
                         <p><span style="color:#00fdff;">Month:</span> ${monthlyImages.month}</p>
@@ -337,6 +339,11 @@
                     </div>
                     <!-- Image Container -->
                     <img src="photo/${monthlyImages.usermonthlyImage}" alt="Diet Plan for ${monthlyImages.dietPlan}">
+
+               <c:if test="${not empty imageName}">
+                <img src="${pageContext.request.contextPath}/uploads/${imageName}" class="rounded-circle" width="100">
+              </c:if>
+
                 </div>
             </c:forEach>
         </div>
@@ -344,7 +351,7 @@
 </div>
 
 <script>
-    document.getElementById('diet-image').addEventListener('change', function(event) {
+    document.getElementById('month-image').addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();

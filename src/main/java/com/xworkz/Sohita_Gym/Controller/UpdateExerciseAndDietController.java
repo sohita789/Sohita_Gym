@@ -49,11 +49,11 @@ public class UpdateExerciseAndDietController {
         List<RegistrationEntity> registrationEntityList=gymService.getAllRegistredUsersDetailsByNameAndPhoneNo(searchName,searchPhoneNo);
         System.out.println(registrationEntityList);
         AdminEntity entity=(AdminEntity) httpSession.getAttribute("adminEntity");
-
+       System.out.println("entity:"+entity);
         model.addAttribute("listimg",entity);
+
         if(registrationEntityList.isEmpty()){
             model.addAttribute("listimg",entity);
-
             model.addAttribute("notFound","No One Registred With This Name And Phone Number. Please Check Name And Phone Number");
             return "UpdateUserExerciseAndDiet";
         }
@@ -67,9 +67,74 @@ public class UpdateExerciseAndDietController {
         AdminEntity adminEntity=(AdminEntity) httpSession.getAttribute("adminEntity") ;
         model.addAttribute("list",adminEntity);
         System.out.println(id);
-        model.addAttribute("id",id);
+        model.addAttribute("Userid",id);//edited id as userid//
         return "ExerciseAndDiet";
     }
+
+//    @PostMapping("/exercisediet")
+//    public String onUpdate(
+//            @RequestParam("dietImage") MultipartFile multipartFile,
+//            @RequestParam int id,
+//            UserExerciseAndDietDTO userExerciseAndDietDTO,
+//            Model model,
+//            HttpSession httpSession) throws IOException {
+//
+//        System.out.println("================ onUpdate in controller ==============");
+//        System.out.println("ID: " + id);
+//        System.out.println("DTO: " + userExerciseAndDietDTO);
+//
+//        String filePath = null;
+//
+//        // Check if the uploaded file is empty
+//        if (!multipartFile.isEmpty()) {
+//            System.out.println("File: " + multipartFile);
+//            System.out.println("Original Filename: " + multipartFile.getOriginalFilename());
+//
+//            // Handle file upload
+//            try {
+//                byte[] bytes = multipartFile.getBytes();
+//
+//                // Ensure the parent directory exists
+//                Path directoryPath = Paths.get(ProfileImagePath.ProfileImagePath.getPath());
+//                if (!Files.exists(directoryPath)) {
+//                    Files.createDirectories(directoryPath); // Create directories if they don't exist
+//                }
+//
+//                // Create a unique file path
+//                Path path = Paths.get(ProfileImagePath.ProfileImagePath.getPath(), System.currentTimeMillis() + ".jpg");
+//                Files.write(path, bytes);
+//                filePath = path.getFileName().toString();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                model.addAttribute("error", "Failed to upload the file. Please try again.");
+//                return "ExerciseAndDiet";
+//            }
+//        } else {
+//            model.addAttribute("error", "File is empty. Please upload a valid image.");
+//            return "ExerciseAndDiet";
+//        }
+//
+//        System.out.println("File Path: " + filePath);
+//
+//        // Save the data using the service layer
+//        gymService.saveUserDietAndExercise(id, filePath, userExerciseAndDietDTO);
+//
+//        // Retrieve data for the model
+//        List<RegistrationEntity> registeredUsers = gymService.getAllRegistredUsersDetails();
+//        AdminEntity adminEntity = (AdminEntity) httpSession.getAttribute("adminEntity");
+//        if (adminEntity == null) {
+//            model.addAttribute("error", "Admin session not found. Please log in again.");
+//            return "index"; // Redirect to login if admin session is missing
+//        }
+//
+//        // Populate the model
+//        model.addAttribute("listimg", adminEntity);
+//        model.addAttribute("list", registeredUsers);
+//        model.addAttribute("success", "Successfully Updated Exercise and Diet Plan");
+//
+//        return "UpdateUserExerciseAndDiet";
+//    }
+//
 
 
     @PostMapping("/exercisediet")
@@ -91,7 +156,6 @@ public class UpdateExerciseAndDietController {
             filePath = path.getFileName().toString();
         }
         System.out.println(filePath);
-
         gymService.saveUserDietAndExercise(id,filePath,userExerciseAndDietDTO);
 
         List<RegistrationEntity> list=gymService.getAllRegistredUsersDetails();
@@ -101,14 +165,17 @@ public class UpdateExerciseAndDietController {
         model.addAttribute("success", "Successfully Updated Exercise and Diet Plan");
         return "UpdateUserExerciseAndDiet";
     }
+
     @GetMapping("/viewUserExercise")
     public String onupdate(@RequestParam int id, HttpSession httpSession, Model model){
         System.out.println(id);
         List<UserUpdatedExerciseAndDietEntity> userExerciseAndDietEntities =gymService.getAlluserExerciseAndDietEntitiesById(id);
         System.out.println(userExerciseAndDietEntities);
+
         List<UserExerciseAndDietEntity> userMonthlyImages =gymService.getuserMonthlyImages(id);
         model.addAttribute("viewUserExercise",userExerciseAndDietEntities);
         model.addAttribute("monthlyImages",userMonthlyImages);
+
         AdminEntity adminEntity=(AdminEntity) httpSession.getAttribute("adminEntity");
         model.addAttribute("listimg",adminEntity);
         return "ViewExerciseAndDiet";

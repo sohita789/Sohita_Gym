@@ -14,17 +14,17 @@ public class UserExerciseAndDietEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int User_id;
 
-    @Column(name = "monday_exe")
+    @Column(name = "monday")
     private String monday;
-    @Column(name = "tuesday_exe")
+    @Column(name = "tuesday")
     private String tuesday;
-    @Column(name = "wednesday_exe")
+    @Column(name = "wednesday")
     private String wednesday;
-    @Column(name = "thursday_exe")
+    @Column(name = "thursday")
     private String thursday;
-    @Column(name = "friday_exe")
+    @Column(name = "friday")
     private String friday;
-    @Column(name ="saturday_exe")
+    @Column(name ="saturday")
     private String saturday;
     @Column(name = "sunday")
     private String sunday;
